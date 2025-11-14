@@ -50,10 +50,6 @@ const handleSendOtp = () => {
                     disabled={isButtonDisabled}
                     style={isButtonDisabled ? GlobalStyles.button_primary_disable : GlobalStyles.button_primary}
                     onPress={()=>{
-                        if(email.trim() === ""){
-                            showToast(string.errorString.empty, string.errorString.emptyEmail, Constants.toastTypes.DANGER);
-                            return;
-                        }
                         if(!isValidEmail(email)){
                             showToast(string.errorString.invalid, string.errorString.invalidEmail, Constants.toastTypes.DANGER);
                             return;

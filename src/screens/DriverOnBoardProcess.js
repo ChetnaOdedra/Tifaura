@@ -124,8 +124,6 @@ useEffect(() => {
                             keyboardShouldPersistTaps="handled"
                             >
                               
-                               
-
 
                  <View style={styles.imageContainer}>
                     <Image
@@ -191,7 +189,7 @@ useEffect(() => {
                  </KeyboardAwareScrollView>  
                 <TouchableOpacity 
                 disabled={isButtonDisabled}
-                style={[isButtonDisabled?GlobalStyles.button_primary_disable:GlobalStyles.button_primary,{marginTop:dimensions.dp_10}]}
+                style={[isButtonDisabled?GlobalStyles.button_primary_disable:GlobalStyles.button_primary,{marginTop:dimensions.dp_15}]}
                 onPress={()=>{
                     showToast(string.registrationString.completeProfile,string.registrationString.completeProfileSuccess,Constants.toastTypes.SUCCESS);
                     clearScreenNavigation(navigation,ScreenNames.Home)
@@ -213,7 +211,6 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     alignItems: "center",
-    marginTop:dimensions.dp_20,
   },
   image: {
     width: dimensions.dp_100,

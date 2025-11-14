@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         marginTop:dimensions.spaceDimension.componenat_space_top_15,
         fontSize: dimensions.textDimension.custom_dialog_des,
-        color: colors.primary,
+        color: colors.black,
         fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_IOS:constants.fontNames.SEGOE_UI
      }
     ,

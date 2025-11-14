@@ -31,7 +31,7 @@ const AppHeader = ({ onMenuPress,header,des }) => {
           
           <View style={styles.headerView}>
 
-              <Text style={GlobalStyles.txt_bold_primary_16}>{header}</Text>
+              <Text style={GlobalStyles.txt_bold_black_18}>{header}</Text>
 
           </View>
 

@@ -177,6 +177,12 @@ const GlobalStyles = StyleSheet.create({
       fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_BOLD_IOS:constants.fontNames.SEGOE_UI_BOLD
     },
 
+     txt_bold_black_18: {
+      fontSize: dimensions.textDimension.text_18,
+      color: colors.black,
+      fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_BOLD_IOS:constants.fontNames.SEGOE_UI_BOLD
+    },
+
     txt_bold_black_10: {
       fontSize: dimensions.textDimension.text_10,
       color: colors.black,

@@ -39,29 +39,14 @@ useEffect(() => {
 
 const validateRegistrationInput = (fullname,email, password,phone,consirmPsw,addressLine1,postCode) => {
 
-    if(fullname.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyFullName, Constants.toastTypes.DANGER);
-        return;
-    }
-    if(email.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyEmail, Constants.toastTypes.DANGER);
-        return;
-    }
+    
     if(!isValidEmail(email)){
         showToast(string.errorString.invalid, string.errorString.invalidEmail, Constants.toastTypes.DANGER);
-        return;
-    }
-    if(password.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyPassword, Constants.toastTypes.DANGER);
         return;
     }
     if(!validatePassword(password)){
         const passwordError = getPasswordError(password);
         showToast(string.errorString.invalid, passwordError, Constants.toastTypes.DANGER);
-        return;
-    }
-    if(consirmPsw.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyConfirmPassword, Constants.toastTypes.DANGER);
         return;
     }
     if(!validatePassword(consirmPsw)){
@@ -71,18 +56,6 @@ const validateRegistrationInput = (fullname,email, password,phone,consirmPsw,add
     }
     if(password !== consirmPsw){
         showToast(string.errorString.invalid, string.errorString.passwordNotMatch, Constants.toastTypes.DANGER);
-        return;
-    }
-    if(phone.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyPhone, Constants.toastTypes.DANGER);
-        return;
-    }
-    if(addressLine1.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyAddressLine1, Constants.toastTypes.DANGER);
-        return;
-    }
-    if(postCode.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyPostCode, Constants.toastTypes.DANGER);
         return;
     }
     handleRegister();

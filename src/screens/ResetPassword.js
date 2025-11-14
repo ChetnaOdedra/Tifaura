@@ -30,17 +30,10 @@ useEffect(() => {
 
 const verifyInputData = (password,consirmPsw) => {
 
-    if(password.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyPassword, Constants.toastTypes.DANGER);
-        return;
-    }
+   
     if(!validatePassword(password)){
         const passwordError = getPasswordError(password);
         showToast(string.errorString.invalid, passwordError, Constants.toastTypes.DANGER);
-        return;
-    }
-    if(consirmPsw.trim() === ""){
-        showToast(string.errorString.empty, string.errorString.emptyConfirmPassword, Constants.toastTypes.DANGER);
         return;
     }
     if(!validatePassword(consirmPsw)){

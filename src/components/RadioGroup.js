@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     borderColor:colors.black,
     borderWidth:1,
     flexDirection: "row",
-    paddingHorizontal:dimensions.spaceDimension.space_10,
-    paddingVertical:dimensions.spaceDimension.space_10,
+    paddingHorizontal:dimensions.dp_12,
+    paddingVertical:dimensions.spaceDimension.space_15,
     marginTop:dimensions.spaceDimension.space_15,
     borderRadius: dimensions.dp_10, 
 
