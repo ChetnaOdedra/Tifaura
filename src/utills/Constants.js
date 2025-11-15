@@ -57,8 +57,9 @@ const Constants = {
         share: require(base_assets_path+"share.png"),
         msg:require(base_assets_path+"typing.png"),
         whatsup:require(base_assets_path+"whatsapp.png"),
-        send:require(base_assets_path+"send.png")
-
+        send:require(base_assets_path+"send.png"),
+        mail:require(base_assets_path+"mail.png"),
+        phone:require(base_assets_path+"phone.png"),
 
     },
 
