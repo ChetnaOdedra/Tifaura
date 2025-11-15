@@ -8,7 +8,10 @@ const colors = {
    hintColor: "#4b4848ff",
    dialogBg:"rgba(56, 55, 55, 0.4)",
    splashBg:"#2e2c2cff",
-   red:"#ff0000"
+   red:"#ff0000",
+   cardPrimary:"#f0daccff",
+   wpGreen:'#187a32ff',
+   cream:"#f6f2f2ff"
 
 }
 export default colors;

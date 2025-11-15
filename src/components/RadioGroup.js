@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal:dimensions.dp_12,
     paddingVertical:dimensions.spaceDimension.space_15,
-    marginTop:dimensions.spaceDimension.space_15,
+    marginTop:dimensions.dp_5,
     borderRadius: dimensions.dp_10, 
 
   },

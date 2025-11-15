@@ -128,6 +128,14 @@ const GlobalStyles = StyleSheet.create({
     },
 
     // white - bold
+
+    txt_bold_white_12: {  
+        alignItems: "center", 
+        textAlign: "center",
+        color: colors.white,
+        fontSize: dimensions.textDimension.text_12,
+        fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_BOLD_IOS:constants.fontNames.SEGOE_UI_BOLD,
+    }, 
       
     txt_bold_white_14: {  
         alignItems: "center", 
@@ -235,7 +243,13 @@ const GlobalStyles = StyleSheet.create({
     borderRadius: dimensions.dp_10,    
     marginTop: dimensions.spaceDimension.button_space_top_50    
   },
-  
+  button_white: {
+    backgroundColor: colors.white, 
+    paddingVertical: dimensions.dp_10,
+    borderRadius: dimensions.dp_20,   
+    alignItems:'center' ,
+    marginTop:dimensions.dp_30,
+  },
   button_primary: {
     backgroundColor: colors.primary, 
     paddingVertical: dimensions.dp_10,

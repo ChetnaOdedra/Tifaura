@@ -17,6 +17,7 @@ const DrawerScreenWrapper = ({
   navigation,
   headerTitle,
   headerDes,
+  customExtraStyleDrawer
 }) => 
   
   {
@@ -79,6 +80,7 @@ const DrawerScreenWrapper = ({
                           header={headerTitle}
                           des={headerDes}
                           onMenuPress={() => setIsDrawerOpen(true)}
+                          customExtraStyleDrawer={{marginstart:dimensions.dp_20}}
                       />
 
                     

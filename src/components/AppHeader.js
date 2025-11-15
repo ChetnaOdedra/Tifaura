@@ -7,11 +7,13 @@ import colors from '../res/color';
 import { normalize } from '../utills/GlobalFunctions';
 import GlobalStyles from '../styles/GlobalStyles';
 
-const AppHeader = ({ onMenuPress,header,des }) => {
+const AppHeader = ({ onMenuPress,header,des ,customExtraStyleDrawer}) => {
 
   return (
 
-    <View style={{flexDirection:'row',alignItems:'center'}}>
+    <View style={
+      [{flexDirection:'row',alignItems:'center'},customExtraStyleDrawer]
+      }>
 
 
           <TouchableOpacity

@@ -55,6 +55,10 @@ const Constants = {
         delete_account: require(base_assets_path+"delete_account.png"),
         ratting: require(base_assets_path+"rating.png"),
         share: require(base_assets_path+"share.png"),
+        msg:require(base_assets_path+"typing.png"),
+        whatsup:require(base_assets_path+"whatsapp.png"),
+        send:require(base_assets_path+"send.png")
+
 
     },
 

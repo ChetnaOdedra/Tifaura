@@ -12,9 +12,9 @@
 		2FDF764F376B41A88346F7E1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBA0866DA014740BCD845DF /* Colors.xcassets */; };
 		41C9BF620968DD49A7292730 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		617E5CBFEA244A8984B4FB6A /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D66F6247C75F48AA87F63B91 /* BootSplash.storyboard */; };
+		6FD2E5726D6942EC9243BA77 /* segoe_ui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6A6E789693045B3B78EE306 /* segoe_ui.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		6FD2E5726D6942EC9243BA77 /* segoe_ui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6A6E789693045B3B78EE306 /* segoe_ui.ttf */; };
 		C6E2749506E34759AFC5FA0C /* segoe_ui_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B26A3A6178DA43C9BBB25705 /* segoe_ui_bold.ttf */; };
 /* End PBXBuildFile section */
 
@@ -28,11 +28,11 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-Tifaura.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tifaura.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Tifaura/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Tifaura/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B26A3A6178DA43C9BBB25705 /* segoe_ui_bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = segoe_ui_bold.ttf; path = ../assets/fonts/segoe_ui_bold.ttf; sourceTree = "<group>"; };
+		C6A6E789693045B3B78EE306 /* segoe_ui.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = segoe_ui.ttf; path = ../assets/fonts/segoe_ui.ttf; sourceTree = "<group>"; };
 		D66F6247C75F48AA87F63B91 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = Tifaura/BootSplash.storyboard; sourceTree = "<group>"; };
 		ECBA0866DA014740BCD845DF /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = Tifaura/Colors.xcassets; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		C6A6E789693045B3B78EE306 /* segoe_ui.ttf */ = {isa = PBXFileReference; name = "segoe_ui.ttf"; path = "../assets/fonts/segoe_ui.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B26A3A6178DA43C9BBB25705 /* segoe_ui_bold.ttf */ = {isa = PBXFileReference; name = "segoe_ui_bold.ttf"; path = "../assets/fonts/segoe_ui_bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +68,16 @@
 				5DCACB8F33CDC322A6C60F78 /* libPods-Tifaura.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B2B3B77B7E349B6A6486EAF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C6A6E789693045B3B78EE306 /* segoe_ui.ttf */,
+				B26A3A6178DA43C9BBB25705 /* segoe_ui_bold.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -108,16 +118,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		3B2B3B77B7E349B6A6486EAF /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				C6A6E789693045B3B78EE306 /* segoe_ui.ttf */,
-				B26A3A6178DA43C9BBB25705 /* segoe_ui_bold.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
