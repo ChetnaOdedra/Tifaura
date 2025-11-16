@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import { View, Text ,Image,TouchableOpacity,StyleSheet,Platform,PermissionsAndroid,Alert} from "react-native";
 import DrawerScreenWrapper from "../components/DrawerScreenWrapper";
 import Constants from "../utills/Constants";
@@ -11,77 +11,96 @@ import { request, PERMISSIONS, RESULTS } from "react-native-permissions";
 
 const Home = ({navigation}) =>{
 
- const [location, setLocation] = useState(null);
+    const mapRef = useRef(null);
 
-// Ask permission
-  const askPermission = async () => {
-    try {
-      let result;
 
-      if (Platform.OS === "android") {
-        result = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-        );
-        if (result !== PermissionsAndroid.RESULTS.GRANTED) {
-          Alert.alert(
-            "Location Permission",
-            "Please enable location from Settings."
-          );
-          return false;
-        }
-      } else {
-        result = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
-        if (result !== RESULTS.GRANTED) {
-          Alert.alert(
-            "Location Permission",
-            "Please enable location from Settings."
-          );
-          return false;
-        }
-      }
+//  const [location, setLocation] = useState(null);
 
-      return true;
-    } catch (e) {
-      console.log("Permission Error: ", e);
-      return false;
-    }
+// // Ask permission
+//   const askPermission = async () => {
+//     try {
+//       let result;
+
+//       if (Platform.OS === "android") {
+//         result = await PermissionsAndroid.request(
+//           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+//         );
+//         if (result !== PermissionsAndroid.RESULTS.GRANTED) {
+//           Alert.alert(
+//             "Location Permission",
+//             "Please enable location from Settings."
+//           );
+//           return false;
+//         }
+//       } else {
+//         result = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
+//         if (result !== RESULTS.GRANTED) {
+//           Alert.alert(
+//             "Location Permission",
+//             "Please enable location from Settings."
+//           );
+//           return false;
+//         }
+//       }
+
+//       return true;
+//     } catch (e) {
+//       console.log("Permission Error: ", e);
+//       return false;
+//     }
+//   };
+
+//   // Get Live Location
+//   const getLiveLocation = () => {
+//     Geolocation.watchPosition(
+//       (pos) => {
+//         console.log("pos....",pos.coords.latitude ,"....", pos.coords.longitude)
+//         setLocation({
+//           latitude: pos.coords.latitude,
+//           longitude: pos.coords.longitude,
+//         });
+//       },
+//       (error) => {
+//         console.log(error);
+//         Alert.alert("Location Error", "Please enable GPS");
+//       },
+//       {
+//         enableHighAccuracy: true,
+//         distanceFilter: 0,
+//         interval: 2000,
+//         fastestInterval: 1000,
+//       }
+//     );
+//   };
+
+//   useEffect(() => {
+//     const init = async () => {
+//       const granted = await askPermission();
+//       if (granted) {
+//         getLiveLocation();
+//       }
+//     };
+
+//     init();
+//   }, []);
+
+//   if (!location) return null;
+
+ const marker = {
+    latitude: 23.0225,
+    longitude: 72.5714,
   };
 
-  // Get Live Location
-  const getLiveLocation = () => {
-    Geolocation.watchPosition(
-      (pos) => {
-        console.log("pos....",pos.coords.latitude ,"....", pos.coords.longitude)
-        setLocation({
-          latitude: pos.coords.latitude,
-          longitude: pos.coords.longitude,
-        });
-      },
-      (error) => {
-        console.log(error);
-        Alert.alert("Location Error", "Please enable GPS");
-      },
+  const zoomToMarker = () => {
+    mapRef.current.animateToRegion(
       {
-        enableHighAccuracy: true,
-        distanceFilter: 0,
-        interval: 2000,
-        fastestInterval: 1000,
-      }
+        ...marker,
+        latitudeDelta: 0.005,
+        longitudeDelta: 0.005,
+      },
+      1000
     );
   };
-
-  useEffect(() => {
-    const init = async () => {
-      const granted = await askPermission();
-      if (granted) {
-        getLiveLocation();
-      }
-    };
-
-    init();
-  }, []);
-
-  if (!location) return null;
 
     return(
 
@@ -95,18 +114,21 @@ const Home = ({navigation}) =>{
 
             <MapView
                 style={{flex:1}}
+                ref={mapRef}
                 showsUserLocation={true}
                 initialRegion={{
-                    latitude: location.latitude,
-                    longitude: location.longitude,
+                    // latitude: location.latitude,
+                    // longitude: location.longitude,
+                    ...marker,
                     latitudeDelta: 0.005,
                     longitudeDelta: 0.005,
                 }}
                 >
                 <Marker
-                    coordinate={location}
+                    coordinate={marker}
                     title="You are here"
                     pinColor="blue"
+                    onPress={zoomToMarker}
                 />
                 </MapView>
             

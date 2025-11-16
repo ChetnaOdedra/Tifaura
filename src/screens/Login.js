@@ -77,7 +77,7 @@ return(
                                                 }    
                                             }else{
                                                 handleLogin();
-                                                clearScreenNavigation(navigation,ScreenNames.DriverOnBoardProcess)
+                                                clearScreenNavigation(navigation,ScreenNames.Home)
                                                 showToast(string.loginString.login, string.loginString.loginSuccess, Constants.toastTypes.SUCCESS);
                                             }
                                         }}>

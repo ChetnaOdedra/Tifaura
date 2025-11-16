@@ -57,8 +57,8 @@ const DrawerScreenWrapper = ({
         {
           paddingTop: insets.top>40?insets.top:insets.top+dimensions.dp_20,
           paddingBottom: insets.top>0?insets.bottom:insets.bottom+dimensions.dp_20,
-          paddingLeft: insets.left+dimensions.dp_20,
-          paddingRight: insets.right+dimensions.dp_20,
+          paddingLeft: insets.left+dimensions.dp_15,
+          paddingRight: insets.right+dimensions.dp_15,
         },
         customExtraStyle, // allow custom styles this we carry while calling this component if needed 
       ]}

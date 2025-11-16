@@ -11,7 +11,8 @@ const colors = {
    red:"#ff0000",
    cardPrimary:"#f0daccff",
    wpGreen:'#187a32ff',
-   cream:"#f6f2f2ff"
+   cream:"#f6f2f2ff",
+   gray:"#f8f5f5ff"
 
 }
 export default colors;
