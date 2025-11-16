@@ -26,7 +26,7 @@ const toastConfig: ToastConfig = {
       {...props}
       style={{ 
         borderLeftColor: '#4CAF50', 
-        width: '95%',
+        width: '90%',
         height:'auto'
       }}
       contentContainerStyle={{ 
@@ -53,7 +53,7 @@ const toastConfig: ToastConfig = {
       {...props}
       style={{ 
         borderLeftColor: '#F44336', 
-        width: '95%',
+        width: '90%',
         height:'auto'
       }}
       contentContainerStyle={{ 
