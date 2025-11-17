@@ -6,6 +6,7 @@ import Constants from "../../utills/Constants";
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import colors from "../../res/color";
 import dimensions from "../../res/dimenstion";
+import string from "../../res/string";
 
 const Earning = ({navigation}) =>{
 
@@ -14,8 +15,12 @@ const [index, setIndex] = React.useState(0);
 
 const DeliveredOrders = () => {
   const data = [
-    { id: '1', title: 'Order #123', amount: '₹250' },
-    { id: '2', title: 'Order #124', amount: '₹180' },
+    { id: '1', title: 'Order #121', noOfMeal: '3 Meals' , date:'12th Oct 2025' , type :'Lunch' },
+    { id: '2', title: 'Order #122', noOfMeal: '7 Meals' , date:'12th Oct 2025' , type :'Dinner'},
+    { id: '3', title: 'Order #123', noOfMeal: '10 Meals' ,date:'13th Oct 2025' , type :'Lunch'},
+    { id: '4', title: 'Order #124', noOfMeal: '16 Meals' ,date:'14th Oct 2025' , type :'Lunch'},
+    { id: '5', title: 'Order #125', noOfMeal: '14 Meals' ,date:'14th Oct 2025' , type :'Dinner'},
+    { id: '6', title: 'Order #126', noOfMeal: '8 Meals' ,date:'15th Oct 2025' , type :'Lunch'},
   ];
 
   return (
@@ -26,7 +31,10 @@ const DeliveredOrders = () => {
       renderItem={({ item }) => (
         <View style={styles.orderItem}>
           <Text style={GlobalStyles.txt_bold_black_16}>{item.title}</Text>
-          <Text style={GlobalStyles.txt_regular_black_14}>{item.amount}</Text>
+          <Text style={GlobalStyles.txt_regular_black_14}>{item.noOfMeal}</Text>
+          <Text style={GlobalStyles.txt_regular_black_14}>{item.date}</Text>
+          <Text style={GlobalStyles.txt_regular_black_14}>{item.type}</Text>
+
         </View>
       )}
     />
@@ -79,9 +87,8 @@ const renderScene = SceneMap({
            
  <DrawerScreenWrapper
           navigation={navigation}
-          headerTitle={"Earning"}
-          headerDes={"fahfahfgh"} 
-          index={Constants.drawerIndex.HOME}
+          headerTitle={string.screenNames.Earnings}
+          index={Constants.drawerIndex.EARNING}
         >
              <TabView
                 navigationState={{ index, routes }}

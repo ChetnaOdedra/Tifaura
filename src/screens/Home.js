@@ -7,6 +7,7 @@ import MapView, { Marker } from "react-native-maps";
 
 import Geolocation from "react-native-geolocation-service";
 import { request, PERMISSIONS, RESULTS } from "react-native-permissions";
+import dimensions from "../res/dimenstion";
 
 
 const Home = ({navigation}) =>{
@@ -104,11 +105,12 @@ const Home = ({navigation}) =>{
 
     return(
 
-     <DrawerScreenWrapper
+    <DrawerScreenWrapper
           navigation={navigation}
           headerTitle={"Home"}
           headerDes={"fahfahfgh"} 
           index={Constants.drawerIndex.HOME}
+          isOnlineProvider={true}
         >
           <View style={styles.container}>
 
@@ -130,7 +132,7 @@ const Home = ({navigation}) =>{
                     pinColor="blue"
                     onPress={zoomToMarker}
                 />
-                </MapView>
+            </MapView>
             
           </View>
 

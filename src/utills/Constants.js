@@ -60,7 +60,8 @@ const Constants = {
         send:require(base_assets_path+"send.png"),
         mail:require(base_assets_path+"mail.png"),
         phone:require(base_assets_path+"phone.png"),
-        arrow:require(base_assets_path+"arrow.png")
+        arrow:require(base_assets_path+"arrow.png"),
+        back:require(base_assets_path+"back.png")
 
     },
 

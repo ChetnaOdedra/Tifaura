@@ -6,7 +6,8 @@ class PreferenceManager {
       USER: "user",
       TOKEN: "token",
       IS_LOGGED_IN: "isLoggedIn",
-      IS_NOT_NOW_APP_UPDATE:"isNotNowAppUpdate"
+      IS_NOT_NOW_APP_UPDATE:"isNotNowAppUpdate",
+      IS_PROVIDER_ONLINE:'isProviderOnline'
 
   };
   

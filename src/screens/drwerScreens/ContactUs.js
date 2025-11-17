@@ -6,6 +6,7 @@ import Constants from "../../utills/Constants";
 import dimensions from "../../res/dimenstion";
 import colors from "../../res/color";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import string from "../../res/string";
 
 
 const ContactUs = ({navigation}) =>{
@@ -16,19 +17,15 @@ const ContactUs = ({navigation}) =>{
 
    
             return(
-                
                      <DrawerScreenWrapper
                         navigation={navigation}
-                        headerTitle={"Contact Us"}
-                        headerDes={"fahfahfgh"} 
-                        index={Constants.drawerIndex.SHARE_APP}
+                        headerTitle={string.screenNames.ContactUs}
+                        index={Constants.drawerIndex.CONTACT_US}
                         >
                
                         <View style={{
                             flex: 1,
-                            marginTop:dimensions.dp_30
-                            // justifyContent: 'center',
-                            // alignItems: 'center'
+                            marginTop:dimensions.dp_3
                             }}>
 
     
@@ -98,10 +95,6 @@ const ContactUs = ({navigation}) =>{
                                 </View>
 
                      </DrawerScreenWrapper>
-
-            
-
-                
             )
 
 }

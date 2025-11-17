@@ -12,7 +12,7 @@ import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ImagePickerModal from "../components/ImagePickerModal";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import AppHeaderBack from '../components/AppHeaderBack'
 
 const DriverOnBoardProcess = ({ navigation }) =>{
 
@@ -99,6 +99,10 @@ useEffect(() => {
  return(
         <SafeAreaView style={GlobalStyles.container}>
 
+                <AppHeaderBack
+                  header={"Partner Registration"}
+                  navigation={navigation}
+                />
 
                 <ImagePickerModal
                     visible={modalVisible}
@@ -187,14 +191,15 @@ useEffect(() => {
                 />
 
                  </KeyboardAwareScrollView>  
-                <TouchableOpacity 
-                disabled={isButtonDisabled}
-                style={[isButtonDisabled?GlobalStyles.button_primary_disable:GlobalStyles.button_primary,{marginTop:dimensions.dp_15}]}
-                onPress={()=>{
-                    showToast(string.registrationString.completeProfile,string.registrationString.completeProfileSuccess,Constants.toastTypes.SUCCESS);
-                    clearScreenNavigation(navigation,ScreenNames.Home)
-                }}
-                >
+
+                  <TouchableOpacity 
+                    disabled={isButtonDisabled}
+                    style={[isButtonDisabled?GlobalStyles.button_primary_disable:GlobalStyles.button_primary,{marginTop:dimensions.dp_15}]}
+                    onPress={()=>{
+                        showToast(string.registrationString.completeProfile,string.registrationString.completeProfileSuccess,Constants.toastTypes.SUCCESS);
+                        clearScreenNavigation(navigation,ScreenNames.Home)
+                    }}
+                    >
                     <Text style={GlobalStyles.button_text_white}>{string.registrationString.completeProfile}</Text>
                 </TouchableOpacity>
 

@@ -1,4 +1,5 @@
 import { first } from "rxjs"
+import ContactUs from "../screens/drwerScreens/ContactUs"
 
 const string =
 
@@ -105,6 +106,16 @@ const string =
         emptyAddressLine1:"Address Line 1 can not be empty",
         emptyPostCode:"Post Code can not be empty",
   },
+
+  screenNames:{
+       Home:"Home",
+       Privacy:"Privacy Policy",
+       TermsC:"Terms & Conditions",
+       ShareApp:"Share App",
+       RateApp:"Rate Us",
+       ContactUs:"Contact Us",
+       Earnings:'Earnings',
+  }
 }
 
 export default  string

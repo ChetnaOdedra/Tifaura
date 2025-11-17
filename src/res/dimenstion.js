@@ -69,7 +69,8 @@ const dimensions = {
         keyboardExrtaSpace: dp(60),
     },
     
-    textInputHeightIos:dp(45)
+    textInputHeightIos:dp(45),
+    screenHorizontalPadding:dp(15)
 
 }
 export default dimensions

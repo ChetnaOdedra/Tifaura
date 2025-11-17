@@ -257,13 +257,26 @@ const GlobalStyles = StyleSheet.create({
     alignItems:'center' ,
     marginTop:dimensions.dp_30,
   },
-
   button_red: {
     backgroundColor: colors.red, 
     paddingVertical: dimensions.dp_10,
     borderRadius: dimensions.dp_20,   
     alignItems:'center' ,
     marginTop:dimensions.dp_30,
+  },
+  button_online_green: {
+    backgroundColor: colors.wpGreen, 
+     paddingVertical: dimensions.dp_5,
+    borderRadius: dimensions.dp_15,  
+    alignItems:'center' ,
+    paddingHorizontal:dimensions.dp_15
+  },
+   button_online_primary: {
+    backgroundColor: colors.primary, 
+    paddingVertical: dimensions.dp_5,
+    borderRadius: dimensions.dp_15,   
+    alignItems:'center' ,
+    paddingHorizontal:dimensions.dp_15
   },
   button_primary_disable: {
     backgroundColor: colors.primary_disable, 

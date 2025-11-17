@@ -56,8 +56,7 @@ const Settings = ({navigation}) =>{
  <DrawerScreenWrapper
           navigation={navigation}
           headerTitle={"Settings"}
-          headerDes={"fahfahfgh"} 
-          index={Constants.drawerIndex.HOME}
+          index={Constants.drawerIndex.SETTINGS}
         >
            <FlatList
             data={settingsOptions}
@@ -72,15 +71,15 @@ const Settings = ({navigation}) =>{
 export default Settings
 
 const styles = StyleSheet.create({
-container: { flex: 1, backgroundColor: "#fff", padding: 16 },
-itemContainer: {
-flexDirection: "row",
-justifyContent: "space-between",
-alignItems: "center",
-paddingVertical: 16,
-borderBottomWidth: 1,
-borderBottomColor: "#eee",
-},
-title: { fontSize: 16 },
-arrow: { fontSize: 18, color: "#888" },
+        container: { flex: 1, backgroundColor: "#fff", padding: 16 },
+        itemContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingVertical: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: "#eee",
+        },
+        title: { fontSize: 16 },
+        arrow: { fontSize: 18, color: "#888" },
 });

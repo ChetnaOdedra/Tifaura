@@ -1,30 +1,28 @@
 // src/components/SafeAreaWrapper.tsx
 import React ,{useState,useEffect}from "react";
-import { View, StyleSheet,KeyboardAvoidingView,ScrollView} from "react-native";
+import { View, StyleSheet,KeyboardAvoidingView,ScrollView,Image, Touchable,TouchableOpacity} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import GlobalStyles from "../styles/GlobalStyles";
 import dimensions from "../res/dimenstion";
 import CustomDrawerModal from "./CustomDrawerModal";
 import { changeUi } from "../utills/GlobalFunctions";
 import PreferenceManager from "../utills/PreferenceManager";
-import APILoader from "../components/APILoader"
-import AppHeader from "./AppHeader";
+import APILoader from "./APILoader"
+import AppHeaderBack from "./AppHeaderBack";
 import Constants from "../utills/Constants";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const DrawerScreenWrapper = ({ 
+
+const ScreenWrapper = ({ 
   children, 
-  customExtraStyle ,
-  index,
   navigation,
   headerTitle,
-  customExtraStyleDrawer,
-  isOnlineProvider
+  customExtraStyle
 }) => 
   
   {
 
     const insets = useSafeAreaInsets();
-    const [isDrawerOpen,setIsDrawerOpen] = useState(false)
     const [loading, setLoading] = useState(true)
     const [loginUser, setLoginUser] = useState(null)
 
@@ -52,39 +50,24 @@ const DrawerScreenWrapper = ({
       
   return (
 
-    <View
+    <SafeAreaView
       style={[
         styles.container,
         {
-          paddingTop: insets.top>40?insets.top:insets.top+dimensions.dp_20,
-          paddingBottom: insets.top>0?insets.bottom:insets.bottom+dimensions.dp_20,
-          paddingLeft: index == Constants.drawerIndex.HOME?0:insets.left+dimensions.screenHorizontalPadding,
-          paddingRight:  index == Constants.drawerIndex.HOME?0:insets.right+dimensions.screenHorizontalPadding,
+          // paddingTop: insets.top>40?insets.top:insets.top+dimensions.dp_20,
+          // paddingBottom: insets.top>0?insets.bottom:insets.bottom+dimensions.dp_20,
+          paddingTop:dimensions.dp_20,
+          paddingLeft: insets.left+dimensions.dp_20,
+          paddingRight: insets.right+dimensions.dp_20,
         },
         customExtraStyle, // allow custom styles this we carry while calling this component if needed 
       ]}
     >
 
-                      <CustomDrawerModal
-                          index={index}
-                          visible={isDrawerOpen}
-                          onClose={(i) => {
-                             setIsDrawerOpen(false);
-                             changeUi(i, navigation);
-                          }}
-                          navigation = {navigation}
-                          isLoggedIn = {true}
-                          loginUser = {loginUser}
-                        /> 
-
-                      <AppHeader
-                          index={index}
-                          header={headerTitle}
-                          onMenuPress={() => setIsDrawerOpen(true)}
-                          customExtraStyleDrawer={{marginstart:dimensions.dp_20}}
-                          isOnlineProvider={isOnlineProvider}
-                      />
-
+                    <AppHeaderBack
+                      navigation={navigation}
+                      header={headerTitle}
+                    />
                     
                       <KeyboardAvoidingView
                             style={{ flex: 1 , marginTop:dimensions.spaceDimension.space_10 }}
@@ -103,7 +86,7 @@ const DrawerScreenWrapper = ({
                           </ScrollView>
 
                       </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -115,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DrawerScreenWrapper;
+export default ScreenWrapper;

@@ -6,6 +6,8 @@ import Constants from "../../utills/Constants";
 import RenderHTML from 'react-native-render-html';
 import dimensions from "../../res/dimenstion";
 import colors from "../../res/color";
+import ScreenWrapper from "../../components/ScreenWrapper";
+import string from "../../res/string";
 
 const TermsCondition = ({navigation}) =>{
 
@@ -78,12 +80,10 @@ const TermsCondition = ({navigation}) =>{
    
  return(
            
- <DrawerScreenWrapper
-          navigation={navigation}
-          headerTitle={"Terms & Condition"}
-          headerDes={"fahfahfgh"} 
-          index={Constants.drawerIndex.HOME}
-        >
+    <ScreenWrapper
+        navigation={navigation}
+        headerTitle={string.screenNames.TermsCondition}
+      >
 
          <RenderHTML
                   contentWidth={dimensions.screenWidth}
@@ -125,7 +125,7 @@ const TermsCondition = ({navigation}) =>{
                   }}
                 />        
 
-    </DrawerScreenWrapper>
+    </ScreenWrapper>
 )
 
 }

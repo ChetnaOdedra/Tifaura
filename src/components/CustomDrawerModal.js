@@ -42,14 +42,14 @@ export default function  CustomDrawerModal ({
 
   const menuItems = [
     { id: Constants.drawerIndex.HOME, title: "Home" , icon : Constants.imagePath.home},
-    { id: Constants.drawerIndex.MY_ACCOUNT, title: "My Account",icon : Constants.imagePath.profile },
+   // { id: Constants.drawerIndex.MY_ACCOUNT, title: "My Account",icon : Constants.imagePath.profile },
     { id: Constants.drawerIndex.EARNING, title: "Earning",icon : Constants.imagePath.earning },
     { id: Constants.drawerIndex.SETTINGS, title: "Settings",icon : Constants.imagePath.setting},
     { id: Constants.drawerIndex.CONTACT_US, title: "Contact Us",icon : Constants.imagePath.contact_us },
-    { id: Constants.drawerIndex.PRIVACY_POLICY, title: "Privacy Policy",icon : Constants.imagePath.privacy },
-    { id: Constants.drawerIndex.TERMS_CONDITION, title: "Terms & Conditions",icon : Constants.imagePath.terms },
-    { id: Constants.drawerIndex.SHARE_APP, title: "Share App",icon : Constants.imagePath.share },
-    { id: Constants.drawerIndex.RATE_US, title: "Rate Us",icon : Constants.imagePath.ratting },
+   // { id: Constants.drawerIndex.PRIVACY_POLICY, title: "Privacy Policy",icon : Constants.imagePath.privacy },
+   // { id: Constants.drawerIndex.TERMS_CONDITION, title: "Terms & Conditions",icon : Constants.imagePath.terms },
+   // { id: Constants.drawerIndex.SHARE_APP, title: "Share App",icon : Constants.imagePath.share },
+   // { id: Constants.drawerIndex.RATE_US, title: "Rate Us",icon : Constants.imagePath.ratting },
 
     {
       id: Constants.drawerIndex.LOGOUT,

@@ -6,6 +6,8 @@ import Constants from "../../utills/Constants";
 import RenderHTML from 'react-native-render-html';
 import dimensions from "../../res/dimenstion";
 import colors from "../../res/color";
+import ScreenWrapper from "../../components/ScreenWrapper";
+import string from "../../res/string";
 
 const Privacy = ({navigation}) =>{
 
@@ -47,12 +49,10 @@ const Privacy = ({navigation}) =>{
    
  return(
            
- <DrawerScreenWrapper
-          navigation={navigation}
-          headerTitle={"Privacy Policy"}
-          headerDes={"fahfahfgh"} 
-          index={Constants.drawerIndex.HOME}
-        >
+    <ScreenWrapper
+      navigation={navigation}
+      headerTitle={string.screenNames.Privacy}
+    >
 
          <RenderHTML
                   contentWidth={dimensions.screenWidth}
@@ -87,7 +87,7 @@ const Privacy = ({navigation}) =>{
                   }}
                 />        
 
-    </DrawerScreenWrapper>
+ </ScreenWrapper>
 )
 
 }
