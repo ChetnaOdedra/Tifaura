@@ -52,7 +52,10 @@ const verifyInputData = (password,consirmPsw) => {
 }
 
  return(
-        <AuthScreenComponent>
+            <AuthScreenComponent
+                navigation={navigation}
+                screenName={ScreenNames.ResetPassword}
+            >
            
                <Text style={[GlobalStyles.txt_bold_primary_20,{textAlign:'center'}]}>Reset password!</Text> 
 

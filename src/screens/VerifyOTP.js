@@ -43,22 +43,10 @@ const VerifyOTP = ({navigation}) =>{
     }, [otpOne, otpTwo, otpThree, otpFour, otpFive, otpSix]);
    
  return(
-        <SafeAreaView style={GlobalStyles.mainScreenContainerAuth}>
-            <Image
-             source={Constants.imagePath.transparent_logo}
-             style={GlobalStyles.logoImageStyle}
-            />
-
-             <KeyboardAwareScrollView
-                    contentContainerStyle={{ 
-                        flexGrow: 1, justifyContent: 'flex-end',
-                     }}
-                    extraScrollHeight={dimensions.spaceDimension.keyboardExrtaSpace}  
-                    enableOnAndroid={true}
-                    keyboardShouldPersistTaps="handled"
-                    >
-
-            <View style={GlobalStyles.dataContainerAuth}>
+            <AuthScreenComponent
+              navigation={navigation}
+              screenName={ScreenNames.VerifyOTP}
+            >
 
                <Text style={[GlobalStyles.txt_bold_primary_20,{textAlign:'center'}]}>Verify your account!</Text> 
 
@@ -161,7 +149,7 @@ const VerifyOTP = ({navigation}) =>{
                         maxLength = {1}
                         keyboardType="numeric"
                     />
-              </View>
+                </View>
                
                 <TouchableOpacity 
                     disabled={isButtonDisabled}
@@ -174,10 +162,7 @@ const VerifyOTP = ({navigation}) =>{
                     <Text style={GlobalStyles.button_text_white}>{string.forgotpasswordString.verify}</Text>
                 </TouchableOpacity>
 
-            </View>
-
-            </KeyboardAwareScrollView>
-        </SafeAreaView>
+            </AuthScreenComponent>
     )
 
 }

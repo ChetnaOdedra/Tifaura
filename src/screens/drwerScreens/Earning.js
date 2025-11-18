@@ -87,6 +87,7 @@ const EarningScreen = () => {
   const earningSummary = {
     totalEarned: '₹25,000',
     withdrawable: '₹5,500',
+    paid: '₹3,500',
   };
 
   const transactions = [
@@ -117,8 +118,10 @@ const EarningScreen = () => {
         selectedItemLabelStyle={[GlobalStyles.txt_regular_black_14]}
       />
       <View style={styles.summaryCard}>
-        <Text style={GlobalStyles.txt_regular_black_14}>Total Earned: {earningSummary.totalEarned}</Text>
-        <Text style={GlobalStyles.txt_regular_black_14}>Withdrawable: {earningSummary.withdrawable}</Text>
+        <Text style={GlobalStyles.txt_regular_black_14}>Total Earned:  {earningSummary.totalEarned}</Text>
+        <Text style={GlobalStyles.txt_regular_black_14}>Withdrawable:  {earningSummary.withdrawable}</Text>
+        <Text style={GlobalStyles.txt_regular_black_14}>Paid:  {earningSummary.paid}</Text>
+
       </View>
 
       <FlatList
@@ -163,6 +166,18 @@ const renderScene = SceneMap({
                         style={{ backgroundColor: colors.white }}
                         activeColor= {colors.primary}
                         inactiveColor="gray"
+                        renderLabel={({ route, focused }) => (
+                          <Text
+                            style={{
+                              fontSize: 18,                // << Change tab text size
+                              fontWeight: focused ? '700' : '400',
+                              color: focused ? '#007AFF' : '#999',  // Text color
+                              fontFamily: 'Poppins-Regular',        // Custom font
+                            }}
+                          >
+                            {route.title}
+                          </Text>
+                        )}
                         />
                         )}
                 />

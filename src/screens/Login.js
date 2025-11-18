@@ -34,7 +34,10 @@ const handleLogin = () => {
    
 return(
 
-                                    <AuthScreenComponent>
+                                    <AuthScreenComponent
+                                        navigation={navigation}
+                                        screenName={ScreenNames.LOGIN}
+                                    >
                                     
                                     <Text style={GlobalStyles.textinput_title}>{string.loginString.email}</Text> 
                                      <BorderdTextInput

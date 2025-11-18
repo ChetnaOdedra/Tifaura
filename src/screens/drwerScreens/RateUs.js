@@ -9,6 +9,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import StarRating from 'react-native-star-rating-widget';
 import ScreenWrapper from "../../components/ScreenWrapper";
 import string from "../../res/string";
+import AuthScreenComponent from "../../components/AuthScreenComponant";
+import { ScreenNames } from "../../utills/ScreenName";
 
 const RateUs = ({navigation}) =>{
 
@@ -19,38 +21,16 @@ const RateUs = ({navigation}) =>{
    
             return(
                 
-                    <ScreenWrapper
+                     <AuthScreenComponent
                             navigation={navigation}
+                            screenName={ScreenNames.ShareApp}
                             headerTitle={string.screenNames.RateApp}
                         >
                
-                        <View style={{
-                            flex: 1,
-                            marginTop:dimensions.dp_30
-                        }}>
-
-    
-
-                                <View style={{
-                                        backgroundColor:colors.white,
-                                        padding:dimensions.dp_20,
-                                        borderRadius:dimensions.dp_20,
-                                        elevation:dimensions.cardElevation,
-                                        margin:dimensions.dp_5,
-                                        shadowColor: "#504e4eff",
-                                        shadowOffset: { width: 0, height: 2 },
-                                        shadowOpacity: 0.2,
-                                        shadowRadius: 4,
-                                        alignSelf:'center'
-                                    }}>
-
-                                    <Image
-                                        source={Constants.imagePath.transparent_logo}
-                                        style={{alignSelf:'center',width:dimensions.dp_150,height:dimensions.dp_150,resizeMode:'contain'}}
-                                    />
 
                                     <View style={{
-                                        backgroundColor:colors.cardPrimary,
+                                        marginTop:dimensions.dp_20,
+                                        backgroundColor:colors.cream,
                                         padding:dimensions.dp_15,
                                         borderRadius:dimensions.dp_10,
                                         alignSelf:'center',
@@ -82,11 +62,8 @@ const RateUs = ({navigation}) =>{
                                         <Text style={GlobalStyles.txt_bold_black_14}>Remind me later</Text>
                                     </TouchableOpacity>
 
-                                </View>
 
-                                </View>
-
-                     </ScreenWrapper>
+                     </AuthScreenComponent>
 
             
 

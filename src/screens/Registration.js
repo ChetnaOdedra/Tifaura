@@ -11,8 +11,6 @@ import { ScreenNames } from "../utills/ScreenName";
 import { isValidEmail,showToast ,validatePassword,getPasswordError,clearScreenNavigation} from "../utills/GlobalFunctions";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-
-
 const Registration = ({ navigation }) =>{
 
 const [fullname, setFullName] = useState("");
@@ -69,89 +67,89 @@ const handleRegister = () => {
 
  return(
         <SafeAreaView style={GlobalStyles.mainScreenContainerAuth}>
-            <Image
-             source={Constants.imagePath.transparent_logo}
-             style={GlobalStyles.logoImageStyle}
-            />
 
-            <View style={GlobalStyles.dataContainerAuth}>
-
-            <KeyboardAwareScrollView
-                    contentContainerStyle={{ 
-                        flexGrow: 1, justifyContent: 'flex-end',
-                     }}
-                    extraScrollHeight={dimensions.spaceDimension.keyboardExrtaSpace}  
-                    enableOnAndroid={true}
-                    keyboardShouldPersistTaps="handled"
-                    >
-
-               <Text style={GlobalStyles.textinput_title}>{string.registrationString.fullname}</Text> 
-               <BorderdTextInput
-                    placeholder={string.registrationString.placeHolderFullName}
-                    value={fullname}
-                    onChangeText={setFullName}
+                <Image
+                source={Constants.imagePath.new_logo}
+                style={GlobalStyles.logoImageStyle}
                 />
 
-               <Text style={GlobalStyles.textinput_title}>{string.loginString.email}</Text> 
-               <BorderdTextInput
-                    placeholder={string.loginString.placeholderEmail}
-                    value={email}
-                    onChangeText={setEmail}
-                />
 
-                <Text style={GlobalStyles.textinput_title}>{string.registrationString.phone}</Text> 
+                <KeyboardAwareScrollView
+                        contentContainerStyle={{ 
+                            flexGrow: 1,backgroundColor:colors.white
+                        }}
+                        extraScrollHeight={dimensions.spaceDimension.keyboardExrtaSpace}  
+                        enableOnAndroid={true}
+                        keyboardShouldPersistTaps="handled"
+                        >
+
+                <Text style={GlobalStyles.textinput_title}>{string.registrationString.fullname}</Text> 
                 <BorderdTextInput
-                    placeholder={string.registrationString.placeholderPhone}
-                    value={phone}
-                    keyboardType="numeric"
-                    onChangeText={setPhone}
-                />
+                        placeholder={string.registrationString.placeHolderFullName}
+                        value={fullname}
+                        onChangeText={setFullName}
+                    />
 
-                <Text style={GlobalStyles.textinput_title}>{string.loginString.password}</Text> 
+                <Text style={GlobalStyles.textinput_title}>{string.loginString.email}</Text> 
                 <BorderdTextInput
-                    placeholder={string.loginString.placeholderPassword}
-                    value={password}
-                    secureTextEntry={true}
-                    onChangeText={setPassword}
-                />
+                        placeholder={string.loginString.placeholderEmail}
+                        value={email}
+                        onChangeText={setEmail}
+                    />
 
-                <Text style={GlobalStyles.textinput_title}>{string.registrationString.confirmPassword}</Text> 
-                <BorderdTextInput
-                    placeholder={string.registrationString.placeholderConfirmPassword}
-                    value={consirmPsw}
-                    secureTextEntry={true}
-                    onChangeText={setConfirmPsw}
-                />
+                    <Text style={GlobalStyles.textinput_title}>{string.registrationString.phone}</Text> 
+                    <BorderdTextInput
+                        placeholder={string.registrationString.placeholderPhone}
+                        value={phone}
+                        keyboardType="numeric"
+                        onChangeText={setPhone}
+                    />
 
-                <Text style={GlobalStyles.textinput_title}>{string.registrationString.addressLine1}</Text> 
-                <BorderdTextInput
-                    placeholder={string.registrationString.placeholderAddressLine1}
-                    value={addressLine1}
-                    onChangeText={setAddressLine1}
-                />
+                    <Text style={GlobalStyles.textinput_title}>{string.loginString.password}</Text> 
+                    <BorderdTextInput
+                        placeholder={string.loginString.placeholderPassword}
+                        value={password}
+                        secureTextEntry={true}
+                        onChangeText={setPassword}
+                    />
 
-                 <Text style={GlobalStyles.textinput_title}>{string.registrationString.addressLine2}</Text> 
-                <BorderdTextInput
-                    placeholder={string.registrationString.placeholderAddressLine2}
-                    value={addressLine2}
-                    onChangeText={setAddressLine2}
-                />
+                    <Text style={GlobalStyles.textinput_title}>{string.registrationString.confirmPassword}</Text> 
+                    <BorderdTextInput
+                        placeholder={string.registrationString.placeholderConfirmPassword}
+                        value={consirmPsw}
+                        secureTextEntry={true}
+                        onChangeText={setConfirmPsw}
+                    />
 
-                <Text style={GlobalStyles.textinput_title}>{string.registrationString.town}</Text> 
-                <BorderdTextInput
-                    placeholder={string.registrationString.placeholderTown}
-                    value={town}
-                    onChangeText={setTown}
-                />
+                    <Text style={GlobalStyles.textinput_title}>{string.registrationString.addressLine1}</Text> 
+                    <BorderdTextInput
+                        placeholder={string.registrationString.placeholderAddressLine1}
+                        value={addressLine1}
+                        onChangeText={setAddressLine1}
+                    />
 
-                <Text style={GlobalStyles.textinput_title}>{string.registrationString.postCode}</Text> 
-                <BorderdTextInput
-                    placeholder={string.registrationString.placeholderPostCode}
-                    value={postCode}
-                    onChangeText={setPostCode}
-                />
+                    <Text style={GlobalStyles.textinput_title}>{string.registrationString.addressLine2}</Text> 
+                    <BorderdTextInput
+                        placeholder={string.registrationString.placeholderAddressLine2}
+                        value={addressLine2}
+                        onChangeText={setAddressLine2}
+                    />
 
-            </KeyboardAwareScrollView>
+                    <Text style={GlobalStyles.textinput_title}>{string.registrationString.town}</Text> 
+                    <BorderdTextInput
+                        placeholder={string.registrationString.placeholderTown}
+                        value={town}
+                        onChangeText={setTown}
+                    />
+
+                    <Text style={GlobalStyles.textinput_title}>{string.registrationString.postCode}</Text> 
+                    <BorderdTextInput
+                        placeholder={string.registrationString.placeholderPostCode}
+                        value={postCode}
+                        onChangeText={setPostCode}
+                    />
+
+                </KeyboardAwareScrollView>
 
                 <TouchableOpacity 
                 disabled={isButtonDisabled}
@@ -177,7 +175,6 @@ const handleRegister = () => {
 
                 </View>
               
-            </View>
         </SafeAreaView>
     )
 

@@ -27,13 +27,13 @@ const GlobalStyles = StyleSheet.create({
 
     mainScreenContainerAuth: {
         flex: 1,
-        backgroundColor: colors.bg_black,
-        justifyContent:'flex-end'
+        backgroundColor: colors.white,
+        padding:dimensions.screenHorizontalPadding
     },  
 
     dataContainerAuth: {
-       backgroundColor:colors.white,
-       borderTopRightRadius:dimensions.dp_20,
+       backgroundColor:colors.cream,
+       borderRadius:dimensions.dp_20,
        borderTopLeftRadius:dimensions.dp_20,
        padding:dimensions.dp_20,
        maxHeight: SCREEN_HEIGHT * 0.7, // 👈 70% of screen height
@@ -57,7 +57,7 @@ const GlobalStyles = StyleSheet.create({
         paddingVertical: Platform.OS === "ios" ? dimensions.dp_10 : dimensions.dp_5,
         paddingHorizontal:Platform.OS === "ios" ?dimensions.dp_15 : dimensions.dp_10
       },
-       textInput: {
+    textInput: {
         justifyContent: "center",
         width: "100%",
         fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_IOS:constants.fontNames.SEGOE_UI,
@@ -68,13 +68,15 @@ const GlobalStyles = StyleSheet.create({
 
       // Thease are for logo image styles
 
+    logoShare:{
+      alignSelf:'center',width:dimensions.dp_200,height:dimensions.dp_200,resizeMode:'contain'
+    },  
+
     logoImageStyle: {
         width: dimensions.imageSize.logo_width,
         height: dimensions.imageSize.logo_height,
         resizeMode: "contain",
-        alignSelf: "center",
-        justifyContent:'flex-start',
-        flex:1
+        alignSelf: "center",      
       },
 
       thankYouImageStyle: {
@@ -325,11 +327,19 @@ const GlobalStyles = StyleSheet.create({
     color: colors.primary,
     fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_BOLD_IOS:constants.fontNames.SEGOE_UI_BOLD
   },
-  pTag:{
-     fontSize:dimensions.textDimension.text_16,
-                      color:colors.black,
-                      fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_IOS:constants.fontNames.SEGOE_UI,
+  cardShare:{
+    backgroundColor:colors.cream,
+    padding:dimensions.dp_20,
+    borderRadius:dimensions.dp_20,
+    elevation:dimensions.cardElevation,
+    margin:dimensions.dp_5,
+    shadowColor: colors.shadowColor,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    alignSelf:'center'
   }
+ 
 }
 );
 

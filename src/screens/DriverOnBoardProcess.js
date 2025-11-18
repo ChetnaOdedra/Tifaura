@@ -30,8 +30,8 @@ const closeModal = () => setModalVisible(false);
 
   
 const vehicalTypeOptions = [
-    { label: "Bike", value: true },
-    { label: "Car", value: false },
+    { label: "Car", value: true },
+    { label: "Bike", value: false },
   ];
 const [vehicalRegNo, setVehicalRegNo] = useState("");
 

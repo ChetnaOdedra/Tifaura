@@ -29,7 +29,10 @@ const handleSendOtp = () => {
 };
    
  return(
-        <AuthScreenComponent>
+        <AuthScreenComponent
+            navigation={navigation}
+            screenName={ScreenNames.ForgotPassword}
+        >
            
                <Text style={[GlobalStyles.txt_bold_primary_20,{textAlign:'center'}]}>Forgot your password?</Text> 
 

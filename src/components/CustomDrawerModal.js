@@ -43,7 +43,7 @@ export default function  CustomDrawerModal ({
 
   const menuItems = [
     { id: Constants.drawerIndex.HOME, title: string.screenNames.Home , icon : Constants.imagePath.home},
-   // { id: Constants.drawerIndex.MY_ACCOUNT, title: "My Account",icon : Constants.imagePath.profile },
+    { id: Constants.drawerIndex.MY_ACCOUNT, title: string.screenNames.PartnerReg,icon : Constants.imagePath.profile },
     { id: Constants.drawerIndex.EARNING, title: string.screenNames.Earnings,icon : Constants.imagePath.earning },
     { id: Constants.drawerIndex.SETTINGS, title: string.screenNames.Settings,icon : Constants.imagePath.setting},
     { id: Constants.drawerIndex.CONTACT_US, title: string.screenNames.ContactUs,icon : Constants.imagePath.contact_us },

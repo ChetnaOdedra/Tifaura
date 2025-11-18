@@ -54,8 +54,8 @@ const dimensions = {
     },
 
     imageSize:{
-        logo_width:dp(200),
-        logo_height:dp(200),
+        logo_width:dp(150),
+        logo_height:dp(150),
     },
 
     spaceDimension: {

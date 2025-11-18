@@ -30,22 +30,11 @@ const ContactUs = ({navigation}) =>{
 
     
 
-                                <View style={{
-                                        backgroundColor:colors.black,
-                                        padding:dimensions.dp_20,
-                                        borderRadius:dimensions.dp_20,
-                                        elevation:dimensions.cardElevation,
-                                        margin:dimensions.dp_5,
-                                        shadowColor: "#504e4eff",
-                                        shadowOffset: { width: 0, height: 2 },
-                                        shadowOpacity: 0.2,
-                                        shadowRadius: 4,
-                                        alignSelf:'center'
-                                    }}>
+                                <View style={GlobalStyles.cardShare}>
 
                                     <Image
                                         source={Constants.imagePath.transparent_logo}
-                                        style={{alignSelf:'center',width:dimensions.dp_150,height:dimensions.dp_150,resizeMode:'contain'}}
+                                        style={GlobalStyles.logoShare}
                                     />
 
                                     <View style={{

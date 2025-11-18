@@ -1,6 +1,6 @@
 const colors = {
     
-   primary: "#ed742b",
+   primary: "#ff6701",
    primary_disable: "#eaa981ff",
    primary_light: "#f5e1d4ff",
    white: "#ffffff",
@@ -14,7 +14,8 @@ const colors = {
    wpGreen:'#187a32ff',
    cream:"#f6f2f2ff",
    gray:"#f8f5f5ff",
-   cardBlue:"#e8f0ff"
+   cardBlue:"#e8f0ff",
+   shadowColor:"#504e4eff"
 
 }
 export default colors;

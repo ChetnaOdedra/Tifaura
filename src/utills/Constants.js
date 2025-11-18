@@ -39,6 +39,7 @@ const Constants = {
 
     imagePath :{
         transparent_logo: require(base_assets_path+"transparent_logo.png"),
+        new_logo: require(base_assets_path+"new_logo.png"),
         thank_you: require(base_assets_path+"ic_thankyou.png"),
         profile: require(base_assets_path+"profile.png"),
         camera: require(base_assets_path+"camera.png"),
