@@ -100,7 +100,7 @@ useEffect(() => {
         <SafeAreaView style={GlobalStyles.container}>
 
                 <AppHeaderBack
-                  header={"Partner Registration"}
+                  header={string.screenNames.PartnerReg}
                   navigation={navigation}
                 />
 
@@ -129,7 +129,7 @@ useEffect(() => {
                             >
                               
 
-                 <View style={styles.imageContainer}>
+                <View style={styles.imageContainer}>
                     <Image
                     source={
                         imageUri
@@ -210,18 +210,16 @@ useEffect(() => {
 export default DriverOnBoardProcess
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    marginTop: 20,
-  },
   imageContainer: {
     alignItems: "center",
+    marginBottom:-30
   },
   image: {
-    width: dimensions.dp_100,
-    height: dimensions.dp_100,
-    borderRadius: dimensions.dp_50,
+    width: dimensions.dp_80,
+    height: dimensions.dp_80,
+    borderRadius: dimensions.dp_40,
     backgroundColor: "#ddd",
+    resizeMode:'contain'
   },
  cameraButton: {
     width:dimensions.dp_30,

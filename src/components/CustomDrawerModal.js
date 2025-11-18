@@ -22,6 +22,7 @@ import { getInitials } from '../utills/GlobalFunctions';
 import PreferenceManager from '../utills/PreferenceManager';
 import dimensions from '../res/dimenstion';
 import CustomDialog from './CustomDialog';
+import string from '../res/string';
 
 const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 
@@ -41,11 +42,11 @@ export default function  CustomDrawerModal ({
   
 
   const menuItems = [
-    { id: Constants.drawerIndex.HOME, title: "Home" , icon : Constants.imagePath.home},
+    { id: Constants.drawerIndex.HOME, title: string.screenNames.Home , icon : Constants.imagePath.home},
    // { id: Constants.drawerIndex.MY_ACCOUNT, title: "My Account",icon : Constants.imagePath.profile },
-    { id: Constants.drawerIndex.EARNING, title: "Earning",icon : Constants.imagePath.earning },
-    { id: Constants.drawerIndex.SETTINGS, title: "Settings",icon : Constants.imagePath.setting},
-    { id: Constants.drawerIndex.CONTACT_US, title: "Contact Us",icon : Constants.imagePath.contact_us },
+    { id: Constants.drawerIndex.EARNING, title: string.screenNames.Earnings,icon : Constants.imagePath.earning },
+    { id: Constants.drawerIndex.SETTINGS, title: string.screenNames.Settings,icon : Constants.imagePath.setting},
+    { id: Constants.drawerIndex.CONTACT_US, title: string.screenNames.ContactUs,icon : Constants.imagePath.contact_us },
    // { id: Constants.drawerIndex.PRIVACY_POLICY, title: "Privacy Policy",icon : Constants.imagePath.privacy },
    // { id: Constants.drawerIndex.TERMS_CONDITION, title: "Terms & Conditions",icon : Constants.imagePath.terms },
    // { id: Constants.drawerIndex.SHARE_APP, title: "Share App",icon : Constants.imagePath.share },
@@ -376,7 +377,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 2, height: 0},
     shadowOpacity: 0.25,
     shadowRadius: dimensions.dp_8,
-    elevation: dimensions.dp_8,
+    elevation: dimensions.cardElevation,
     zIndex: 2,
     paddingTop: 0, //24
   },

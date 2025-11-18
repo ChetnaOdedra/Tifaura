@@ -12,7 +12,8 @@ const AppHeaderBack = ({ header ,customExtraStyleDrawer,navigation}) => {
   return (
 
     <View style={
-      [{flexDirection:'row',alignItems:'center',backgroundColor:colors.white},customExtraStyleDrawer]
+      [{flexDirection:'row',alignItems:'center',
+        backgroundColor:colors.white},customExtraStyleDrawer]
       }>
 
 

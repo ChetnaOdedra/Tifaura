@@ -8,7 +8,7 @@ import BorderdTextInput from "../components/BorderdTextInput";
 import string from "../res/string";
 import dimensions from "../res/dimenstion";
 import { ScreenNames } from "../utills/ScreenName";
-import { isValidEmail,showToast ,validatePassword,getPasswordError,clearScreenNavigation,getConfirmPasswordError} from "../utills/GlobalFunctions";
+import { isValidEmail,showToast ,validatePassword,getPasswordError,clearScreenNavigation} from "../utills/GlobalFunctions";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
@@ -45,12 +45,12 @@ const validateRegistrationInput = (fullname,email, password,phone,consirmPsw,add
         return;
     }
     if(!validatePassword(password)){
-        const passwordError = getPasswordError(password);
+        const passwordError = getPasswordError(password,"Password");
         showToast(string.errorString.invalid, passwordError, Constants.toastTypes.DANGER);
         return;
     }
     if(!validatePassword(consirmPsw)){
-        const passwordError = getConfirmPasswordError(consirmPsw);
+        const passwordError = getPasswordError(consirmPsw,"Confirm password");
         showToast(string.errorString.invalid, passwordError, Constants.toastTypes.DANGER);
         return;
     }

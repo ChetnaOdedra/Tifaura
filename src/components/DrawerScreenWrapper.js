@@ -17,7 +17,6 @@ const DrawerScreenWrapper = ({
   index,
   navigation,
   headerTitle,
-  customExtraStyleDrawer,
   isOnlineProvider
 }) => 
   
@@ -81,7 +80,6 @@ const DrawerScreenWrapper = ({
                           index={index}
                           header={headerTitle}
                           onMenuPress={() => setIsDrawerOpen(true)}
-                          customExtraStyleDrawer={{marginstart:dimensions.dp_20}}
                           isOnlineProvider={isOnlineProvider}
                       />
 

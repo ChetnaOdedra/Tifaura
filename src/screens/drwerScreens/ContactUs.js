@@ -34,7 +34,7 @@ const ContactUs = ({navigation}) =>{
                                         backgroundColor:colors.black,
                                         padding:dimensions.dp_20,
                                         borderRadius:dimensions.dp_20,
-                                        elevation:5,
+                                        elevation:dimensions.cardElevation,
                                         margin:dimensions.dp_5,
                                         shadowColor: "#504e4eff",
                                         shadowOffset: { width: 0, height: 2 },

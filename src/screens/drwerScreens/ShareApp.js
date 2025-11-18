@@ -1,46 +1,34 @@
 import React, { useState,useEffect } from "react";
-import { Dimensions, Image, Text,TouchableOpacity,View} from "react-native"
+import { Image, Text,TouchableOpacity,View} from "react-native"
 import GlobalStyles from "../../styles/GlobalStyles";
-import DrawerScreenWrapper from "../../components/DrawerScreenWrapper";
 import Constants from "../../utills/Constants";
 import dimensions from "../../res/dimenstion";
 import colors from "../../res/color";
-import AuthScreenComponent from "../../components/AuthScreenComponant"
-import CustomDrawerModal from "../../components/CustomDrawerModal"
-import AppHeader from '../../components/AppHeader'
-import { changeUi } from "../../utills/GlobalFunctions";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { SafeAreaView } from "react-native-safe-area-context";
-
+import ScreenWrapper from "../../components/ScreenWrapper";
+import string from "../../res/string";
 
 const ShareApp = ({navigation}) =>{
 
-       const [isDrawerOpen,setIsDrawerOpen] = useState(false)
-       const insets = useSafeAreaInsets();
-   
+ 
+  
             return(
                 
-                     <DrawerScreenWrapper
-                        navigation={navigation}
-                        headerTitle={"Share App"}
-                        headerDes={"fahfahfgh"} 
-                        index={Constants.drawerIndex.SHARE_APP}
+                      <ScreenWrapper
+                            navigation={navigation}
+                            headerTitle={string.screenNames.ShareApp}
                         >
                
                         <View style={{
                             flex: 1,
                             marginTop:dimensions.dp_30
-                            // justifyContent: 'center',
-                            // alignItems: 'center'
+                           
                             }}>
 
-    
-
                                 <View style={{
-                                        backgroundColor:colors.black,
+                                        backgroundColor:colors.white,
                                         padding:dimensions.dp_20,
                                         borderRadius:dimensions.dp_20,
-                                        elevation:5,
+                                        elevation:dimensions.cardElevation,
                                         margin:dimensions.dp_5,
                                         shadowColor: "#504e4eff",
                                         shadowOffset: { width: 0, height: 2 },
@@ -51,10 +39,11 @@ const ShareApp = ({navigation}) =>{
 
                                     <Image
                                         source={Constants.imagePath.transparent_logo}
-                                        style={{alignSelf:'center',width:dimensions.dp_150,height:dimensions.dp_150,resizeMode:'contain'}}
+                                        style={{alignSelf:'center',width:dimensions.dp_200,height:dimensions.dp_200,resizeMode:'contain'}}
                                     />
 
                                     <View style={{
+                                        marginTop:-20,
                                         backgroundColor:colors.cardPrimary,
                                         padding:dimensions.dp_15,
                                         borderRadius:dimensions.dp_10,
@@ -143,7 +132,7 @@ const ShareApp = ({navigation}) =>{
 
                                 </View>
 
-                     </DrawerScreenWrapper>
+                     </ScreenWrapper>
 
             
 

@@ -70,7 +70,7 @@ return(
                                                 return;
                                             }
                                             if(!validatePassword(password)){
-                                                const error = getPasswordError(password)
+                                                const error = getPasswordError(password,"Password")
                                                 if(error){
                                                     showToast(string.errorString.invalid, error, Constants.toastTypes.DANGER);
                                                     return;

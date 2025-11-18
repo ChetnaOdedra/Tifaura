@@ -8,7 +8,7 @@ const string =
   sucess:"Success",  
   failed:"Error",
   appName :"TwilightX",     
-   
+  save:"Save", 
   
   loginString : {
 
@@ -63,6 +63,8 @@ const string =
         postCode:"Post Code",
         placeholderPostCode:"Enter your post code *",
         confirmPassword:"Confirm Password",
+        newPsw:"New Password",
+        placeHolderNewPsw:"Enter new password *",
         placeholderConfirmPassword:"Re-enter your password *",
         signUpSuccess:"You have registered successfully.",
         ok:"OK",
@@ -77,7 +79,8 @@ const string =
         verify:"Verify",
         otp:"OTP",
         resetPasswordDescription:"Reset your password and login with new password.",
-        resetPassword:"Reset password"
+        resetPassword:"Reset password",
+        
  },
 
   errorString: {
@@ -106,15 +109,21 @@ const string =
         emptyAddressLine1:"Address Line 1 can not be empty",
         emptyPostCode:"Post Code can not be empty",
   },
-
+       successString:{
+         success:'success',
+         passwordResetSuccess:"Password reset successfully",  
+       },
   screenNames:{
        Home:"Home",
        Privacy:"Privacy Policy",
-       TermsC:"Terms & Conditions",
+       TermsCondition:"Terms & Conditions",
        ShareApp:"Share App",
        RateApp:"Rate Us",
        ContactUs:"Contact Us",
-       Earnings:'Earnings',
+       Earnings:'Payout',
+       Settings:"Settings",
+       PartnerReg:"Partner Registration",
+       ChangePsw:"Change Password"
   }
 }
 

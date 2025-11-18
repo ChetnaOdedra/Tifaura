@@ -36,21 +36,12 @@ export const validatePassword = (password) => {
   return regex.test(password);
 };
 
-export const getPasswordError = (password) => {
-  if (password.length < 8) return 'Password must be at least 8 characters long';
-  if (!/[A-Z]/.test(password)) return 'Password must include at least one uppercase letter';
-  if (!/\d/.test(password)) return 'Password must include at least one number';
+export const getPasswordError = (password,text) => {
+  if (password.length < 8) return text+' must be at least 8 characters long';
+  if (!/[A-Z]/.test(password)) return text+' must include at least one uppercase letter';
+  if (!/\d/.test(password)) return text+' must include at least one number';
   if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password))
-    return 'Password must include at least one special character';
-  return null; // valid
-};
-
-export const getConfirmPasswordError = (password) => {
-  if (password.length < 8) return 'Confirm password must be at least 8 characters long';
-  if (!/[A-Z]/.test(password)) return 'Confirm password must include at least one uppercase letter';
-  if (!/\d/.test(password)) return 'Confirm password must include at least one number';
-  if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password))
-    return 'Confirm password must include at least one special character';
+    return text+' must include at least one special character';
   return null; // valid
 };
 

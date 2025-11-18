@@ -7,7 +7,7 @@ import colors from '../res/color';
 import { normalize } from '../utills/GlobalFunctions';
 import GlobalStyles from '../styles/GlobalStyles';
 
-const AppHeader = ({ onMenuPress,header,index ,customExtraStyleDrawer,isOnlineProvider}) => {
+const AppHeader = ({ onMenuPress,header,index,isOnlineProvider}) => {
 
   const [isOnline,setIsOnline] = useState(isOnlineProvider)
 
@@ -18,7 +18,7 @@ const AppHeader = ({ onMenuPress,header,index ,customExtraStyleDrawer,isOnlinePr
       <View style={
         [{flexDirection:'row',
           marginHorizontal:index==Constants.drawerIndex.HOME?dimensions.screenHorizontalPadding:0
-        },customExtraStyleDrawer]
+        }]
         }>
 
                 <View style={{flex:1,flexDirection:'row',alignItems:'center'}}>

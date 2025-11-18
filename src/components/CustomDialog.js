@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 2, height: 0},
         shadowOpacity: 0.25,
         shadowRadius: dimensions.dp_8,
-        elevation:  dimensions.dp_8,
+        elevation:  dimensions.cardElevation,
         zIndex: 2,
         paddingTop: 0, //24
     },

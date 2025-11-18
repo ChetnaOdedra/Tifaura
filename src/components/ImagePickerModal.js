@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: dimensions.dp_20,
     padding: dimensions.dp_20,
     alignItems: "center",
-    elevation: 8,
+    elevation: dimensions.cardElevation,
     flexWrap:'wrap',
   },
   optionButton: {

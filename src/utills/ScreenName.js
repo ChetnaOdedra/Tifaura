@@ -17,5 +17,6 @@ export  const  ScreenNames = {
         TermsCondition:"TermsCondition",
         ShareApp:"ShareApp",
         RateUs:"RateUs",
+        ChangePassword:"ChangePassword"
 
 } 

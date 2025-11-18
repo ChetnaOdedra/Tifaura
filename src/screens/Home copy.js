@@ -4,7 +4,7 @@ import DrawerScreenWrapper from "../components/DrawerScreenWrapper";
 import Constants from "../utills/Constants";
 import GlobalStyles from "../styles/GlobalStyles";
 import MapView, { Marker } from "react-native-maps";
-import string from "../res/string";
+
 import Geolocation from "react-native-geolocation-service";
 import { request, PERMISSIONS, RESULTS } from "react-native-permissions";
 import dimensions from "../res/dimenstion";
@@ -105,12 +105,11 @@ const Home = ({navigation}) =>{
 
     return(
 
-  
-
-          <DrawerScreenWrapper
+    <DrawerScreenWrapper
           navigation={navigation}
-          headerTitle={string.screenNames.Home}
+          headerTitle={"Home"}
           index={Constants.drawerIndex.HOME}
+          isOnlineProvider={true}
         >
           <View style={styles.container}>
 

@@ -70,7 +70,8 @@ const dimensions = {
     },
     
     textInputHeightIos:dp(45),
-    screenHorizontalPadding:dp(15)
+    screenHorizontalPadding:dp(15),
+    cardElevation:dp(8)
 
 }
 export default dimensions

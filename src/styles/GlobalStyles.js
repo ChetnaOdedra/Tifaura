@@ -310,7 +310,7 @@ const GlobalStyles = StyleSheet.create({
     fontSize: dimensions.textDimension.text_14,
     color: colors.primary,
     marginStart:dimensions.dp_2,
-    marginTop:dimensions.dp_10,
+    marginTop:dimensions.dp_15,
     fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_BOLD_IOS:constants.fontNames.SEGOE_UI_BOLD
     },
 
@@ -325,7 +325,11 @@ const GlobalStyles = StyleSheet.create({
     color: colors.primary,
     fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_BOLD_IOS:constants.fontNames.SEGOE_UI_BOLD
   },
- 
+  pTag:{
+     fontSize:dimensions.textDimension.text_16,
+                      color:colors.black,
+                      fontFamily: Platform.OS === "ios" ?constants.fontNames.SEGOE_UI_IOS:constants.fontNames.SEGOE_UI,
+  }
 }
 );
 

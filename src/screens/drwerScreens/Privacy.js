@@ -67,6 +67,7 @@ const Privacy = ({navigation}) =>{
                         margin:dimensions.dp_10
                     },
                     li: {
+                      marginLeft:dimensions.dp_5,
                       fontSize:dimensions.textDimension.text_16,
                       color:colors.black,
                       fontFamily: Platform.OS === "ios" ?Constants.fontNames.SEGOE_UI_IOS:Constants.fontNames.SEGOE_UI,

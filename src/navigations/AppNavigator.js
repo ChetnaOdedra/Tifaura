@@ -19,6 +19,7 @@ import PrivacyPolicyScreen from '../screens/drwerScreens/Privacy';
 import TermsAndConditionsScreen from '../screens/drwerScreens/TermsCondition';
 import ShareAppScreen from '../screens/drwerScreens/ShareApp';
 import RateUsScreen from '../screens/drwerScreens/RateUs';
+import ChangePassword from '../screens/drwerScreens/ChangePassword'
 
 const Stack = createNativeStackNavigator();
 
@@ -122,6 +123,12 @@ export default function AppNavigator({initialRoute}) {
            <Stack.Screen
             name = {ScreenNames.RateUs}
             component={RateUsScreen}
+            options={{ headerShown: false }}
+          />
+
+            <Stack.Screen
+            name = {ScreenNames.ChangePassword}
+            component={ChangePassword}
             options={{ headerShown: false }}
           />
 

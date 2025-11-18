@@ -6,6 +6,7 @@ import Constants from "../../utills/Constants";
 import { ScreenNames } from "../../utills/ScreenName";
 import dimensions from "../../res/dimenstion";
 import colors from "../../res/color";
+import string from "../../res/string";
 
 const Settings = ({navigation}) =>{
 
@@ -14,7 +15,7 @@ const Settings = ({navigation}) =>{
     const settingsOptions = [
         { id: "1", title: "Partner Registration", screen: ScreenNames.DriverOnBoardProcess },
         { id: "2", title: "Notifications setting", type: "toggle" },
-        { id: "3", title: "Change Password", screen: ScreenNames.ResetPassword},
+        { id: "3", title: "Change Password", screen: ScreenNames.ChangePassword},
         { id: "4", title: "Vehicle Info", screen: "VehicleInfo" },
         { id: "5", title: "Bank Account Info", screen: "BankInfo" },
         { id: "6", title: "Terms & Conditions", screen: ScreenNames.TermsCondition },
@@ -26,8 +27,13 @@ const Settings = ({navigation}) =>{
     const renderItem = ({ item }) => {
         return (
                 <TouchableOpacity
-                disabled={item.type === "toggle"}
-                onPress={() => item.screen && navigation.navigate(item.screen)}
+                onPress={() => {
+                    if(item.type === "toggle"){
+                        setNotifications(!notifications)
+                    }else{
+                        item.screen && navigation.navigate(item.screen)
+                    }
+                }}
                 style={styles.itemContainer}
                 >
                 <Text style={GlobalStyles.txt_regular_black_16}>{item.title}</Text>
@@ -55,7 +61,7 @@ const Settings = ({navigation}) =>{
            
  <DrawerScreenWrapper
           navigation={navigation}
-          headerTitle={"Settings"}
+          headerTitle={string.screenNames.Settings}
           index={Constants.drawerIndex.SETTINGS}
         >
            <FlatList

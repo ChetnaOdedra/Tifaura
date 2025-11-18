@@ -7,13 +7,31 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import colors from "../../res/color";
 import dimensions from "../../res/dimenstion";
 import string from "../../res/string";
+import DropDownPicker from "react-native-dropdown-picker";
+
 
 const Earning = ({navigation}) =>{
 
-const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    { label: "This week", value: "this" },
+    { label: "Last week", value: "last" }
+  ]);
+
+  const [openEarning, setOpenEarning] = useState(false);
+  const [earningValue, setEarningValue] = useState(null);
+  const [earningItems, setEarningItems] = useState([
+    { label: "This week", value: "this" },
+    { label: "Last week", value: "last" }
+  ]);
+
 
 
 const DeliveredOrders = () => {
+  
   const data = [
     { id: '1', title: 'Order #121', noOfMeal: '3 Meals' , date:'12th Oct 2025' , type :'Lunch' },
     { id: '2', title: 'Order #122', noOfMeal: '7 Meals' , date:'12th Oct 2025' , type :'Dinner'},
@@ -24,24 +42,48 @@ const DeliveredOrders = () => {
   ];
 
   return (
-    <FlatList
-      data={data}
-      keyExtractor={(item) => item.id}
-      contentContainerStyle={{ padding: 15 }}
-      renderItem={({ item }) => (
-        <View style={styles.orderItem}>
-          <Text style={GlobalStyles.txt_bold_black_16}>{item.title}</Text>
-          <Text style={GlobalStyles.txt_regular_black_14}>{item.noOfMeal}</Text>
-          <Text style={GlobalStyles.txt_regular_black_14}>{item.date}</Text>
-          <Text style={GlobalStyles.txt_regular_black_14}>{item.type}</Text>
 
-        </View>
-      )}
-    />
+    <View>
+
+       <DropDownPicker
+        open={open}
+        value={value}
+        items={items}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems}
+        placeholder="Filter"
+        dropDownDirection="BOTTOM"
+        zIndex={5000}
+        zIndexInverse={3000}
+        style={{ borderColor: "#ccc",marginTop:dimensions.dp_10 }}
+        dropDownContainerStyle={{ borderColor: "#ccc" }}
+        placeholderStyle={GlobalStyles.txt_regular_black_14}
+        listItemContainerStyle={styles.listItemContainerStyle}
+        listItemLabelStyle={GlobalStyles.txt_regular_black_14}
+        selectedItemContainerStyle={styles.selectedItemContainerStyle}
+        selectedItemLabelStyle={[GlobalStyles.txt_regular_black_14]}
+      />
+    
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={{ padding: 15 }}
+        renderItem={({ item }) => (
+          <View style={styles.orderItem}>
+            <Text style={GlobalStyles.txt_bold_black_16}>{item.title}</Text>
+            <Text style={GlobalStyles.txt_regular_black_14}>{item.noOfMeal} ({item.type})</Text>
+            <Text style={GlobalStyles.txt_regular_black_14}>{item.date}</Text>
+          </View>
+        )}
+      />
+
+    </View>
   );
 };
 
 const EarningScreen = () => {
+
   const earningSummary = {
     totalEarned: '₹25,000',
     withdrawable: '₹5,500',
@@ -53,10 +95,30 @@ const EarningScreen = () => {
   ];
 
   return (
-    <View style={{ flex: 1, padding: 15 }}>
+    <View style={{ flex: 1 }}>
+
+       <DropDownPicker
+        open={openEarning}
+        value={value}
+        items={items}
+        setOpen={setOpenEarning}
+        setValue={setEarningValue}
+        setItems={setEarningItems}
+        placeholder="Filter"
+        dropDownDirection="BOTTOM"
+        zIndex={5000}
+        zIndexInverse={3000}
+        style={{ borderColor: "#ccc",marginTop:dimensions.dp_10 }}
+        dropDownContainerStyle={{ borderColor: "#ccc" }}
+        placeholderStyle={GlobalStyles.txt_regular_black_14}
+        listItemContainerStyle={styles.listItemContainerStyle}
+        listItemLabelStyle={GlobalStyles.txt_regular_black_14}
+        selectedItemContainerStyle={styles.selectedItemContainerStyle}
+        selectedItemLabelStyle={[GlobalStyles.txt_regular_black_14]}
+      />
       <View style={styles.summaryCard}>
         <Text style={GlobalStyles.txt_regular_black_14}>Total Earned: {earningSummary.totalEarned}</Text>
-        <Text style={GlobalStyles.txt_regular_black_16}>Withdrawable: {earningSummary.withdrawable}</Text>
+        <Text style={GlobalStyles.txt_regular_black_14}>Withdrawable: {earningSummary.withdrawable}</Text>
       </View>
 
       <FlatList
@@ -109,9 +171,19 @@ const renderScene = SceneMap({
 )
 
 }
-export default Earning
 
 const styles = StyleSheet.create({
+
+  selectedItemContainerStyle:{
+    backgroundColor: colors.primary_light,      
+    borderLeftWidth: 4,
+    borderLeftColor: colors.primary,
+  },
+  listItemContainerStyle:{
+    paddingVertical: dimensions.dp_0,
+    paddingHorizontal: dimensions.dp_10,
+    height:dimensions.dp_40
+  },
   orderItem: {
     backgroundColor: colors.gray,
     padding: dimensions.dp_15,
@@ -120,9 +192,9 @@ const styles = StyleSheet.create({
   },
 
   summaryCard: {
-    backgroundColor: '#e8f0ff',
+    backgroundColor: colors.cardBlue,
     padding: dimensions.dp_15,
-    marginBottom: dimensions.dp_20,
+    marginVertical: dimensions.dp_20,
     borderRadius: dimensions.dp_10,
   },
   transactionItem: {
@@ -134,3 +206,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
+
+export default Earning
+
