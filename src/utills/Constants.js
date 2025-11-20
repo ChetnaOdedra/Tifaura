@@ -3,8 +3,8 @@ import { share } from 'rxjs';
 import { name as appName } from '../../app.json';
 
 const base_assets_path = "../../assets/";
-const MAIN_URL = "https://api.twilightfinland.eu/";
-const STAGGING_URL = "https://admin.twilightfinland.eu/";
+const MAIN_URL = "https://api.tifaura.com/";
+const STAGGING_URL = "https://api.tifaura.com/";
 
 
 const Constants = {
@@ -12,9 +12,10 @@ const Constants = {
     PHONE_MAX_LENGTH: 10,
     PAGINATION_LIMIT:10,
     ANIMATION_TIME_MODEL : 100,
-    APP_VERSION:"https://api.twilightfinland.eu/appversion",
+    APP_VERSION:"https://api.tifaura.com/graphql",
     BASE_URL : MAIN_URL+"appfunction",
     API_BASE_URL:STAGGING_URL+"graphql",
+    GoogleAPIKey:"AIzaSyAJ38D4vfd0flFzmXoEPim9J0ye0mPyLi8",
 
     appData:{
         applicationName: appName

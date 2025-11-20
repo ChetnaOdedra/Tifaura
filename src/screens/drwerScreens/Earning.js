@@ -15,6 +15,7 @@ const Earning = ({navigation}) =>{
   const [index, setIndex] = useState(0);
 
   const [open, setOpen] = useState(false);
+
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
     { label: "This week", value: "this" },
@@ -100,8 +101,8 @@ const EarningScreen = () => {
 
        <DropDownPicker
         open={openEarning}
-        value={value}
-        items={items}
+        value={earningValue}
+        items={earningItems}
         setOpen={setOpenEarning}
         setValue={setEarningValue}
         setItems={setEarningItems}
