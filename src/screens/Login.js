@@ -19,7 +19,6 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [isAPILoaderShow, setisAPILoaderShow] = useState(false);
 
 
   // ✅ Save user data after successful login
@@ -38,25 +37,26 @@ const Login = ({ navigation }) => {
   const [loginDeliveryBoyMutation, { loading: loadingLogin }] = useMutation(LoginBoy, {
     errorPolicy: "all",
     onCompleted: (response) => {
-      setisAPILoaderShow(false)  
       const loginData = response.LoginDeliveryBoy;
-      if (loginData.success) {
+      console.log("login repo....",response)
+      if (loginData.success == true) {
+
         const userData = loginData.data;
-        if (userData?.usr_is_verified && userData.exists) {
-          showToast(string.sucess, loginData.message, Constants.toastTypes.SUCCESS);
+        showToast(string.sucess, loginData.message, Constants.toastTypes.SUCCESS);
+
+        if (userData?.usr_is_verified) {
           saveUserData(userData, userData.token);
+        }else{
+          if (!loginData.data?.usr_is_verified) {
+          navigation.navigate(ScreenNames.VerifyOTP, { from: ScreenNames.LOGIN, email, password });
+        }
         }
       } else {
         showToast(string.errorString.eroor, loginData.message, Constants.toastTypes.DANGER);
-        // Example: navigate to verify email if needed
-        if (!loginData.data?.usr_is_verified && loginData.data?.exists) {
-          navigation.navigate(ScreenNames.VerifyEmail, { from: ScreenNames.LOGIN, email, password });
-        }
       }
     },
     onError: (error) => {
       console.log("Login error:", error);
-      setisAPILoaderShow(false)
       showToast(string.errorString.eroor, error.message, Constants.toastTypes.DANGER);
     },
   });

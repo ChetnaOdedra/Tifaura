@@ -4,16 +4,22 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Constants from "../utills/Constants";
 import GlobalStyles from "../styles/GlobalStyles";
 import colors from "../res/color";
-import BorderdTextInput from "../components/BorderdTextInput";
 import string from "../res/string";
 import dimensions from "../res/dimenstion";
 import { ScreenNames } from "../utills/ScreenName";
-import { showToast } from "../utills/GlobalFunctions";
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { clearScreenNavigation, showToast } from "../utills/GlobalFunctions";
 import AuthScreenComponent from "../components/AuthScreenComponant";  
-
+import { useMutation } from "@apollo/client/react";
+import { useRoute } from "@react-navigation/native";
+import APILoader from "../components/APILoader";
+import { ResendDeliveryBoyOTP } from "../api/graphQL/mutation/ResendDeliveryBoyOTP"; 
+import { VerifyDeliveryBoyOTP } from "../api/graphQL/mutation/VerifyDeliveryBoyOTP";
 
 const VerifyOTP = ({navigation}) =>{
+
+  const route = useRoute();
+  const { from , email ,password } = route.params || {};
+  console.log("params...",route.params)
 
   const [otpOne, setOtpOne] = useState("");
   const [otpTwo, setOtpTwo] = useState("");
@@ -41,6 +47,58 @@ const VerifyOTP = ({navigation}) =>{
         setIsButtonDisabled(true);
       }
     }, [otpOne, otpTwo, otpThree, otpFour, otpFive, otpSix]);
+
+  const [ resendDeliveryBoyOTP , { loading: loadingResend, error: errorResend, data: dataResend  }] = 
+   useMutation ( ResendDeliveryBoyOTP,
+
+  {
+    errorPolicy: "all",
+    onCompleted: (data) => {    
+
+      setLoaderCount((prev) => prev - 1)
+      if(data.ResendDeliveryBoyOTP.success){
+       showToast(string.sucess,data.ResendDeliveryBoyOTP.message, Constants.toastTypes.SUCCESS);
+
+      }else{
+      showToast(string.errorString.eroor,data.ResendDeliveryBoyOTP.message, Constants.toastTypes.DANGER);
+      }
+    },
+    
+    onError: (error) => {
+      setLoaderCount((prev) => prev - 1)
+      showToast(string.errorString.eroor,error.message, Constants.toastTypes.DANGER);
+    },
+    }
+  )
+
+  const [ verifyDeliveryBoyOTP, { loading, error, data }] = useMutation ( VerifyDeliveryBoyOTP,
+
+  {
+    errorPolicy: "all",
+    onCompleted: (data) => {     
+
+      setLoaderCount((prev) => prev - 1)
+
+      console.log("data otp...",data)
+
+      if(data.VerifyDeliveryBoyOTP.success == true){
+
+       showToast(string.sucess,data.VerifyDeliveryBoyOTP.message, Constants.toastTypes.SUCCESS);
+
+       if(from == ScreenNames.Registration || from == ScreenNames.LOGIN){
+         clearScreenNavigation(navigation,ScreenNames.ThankYou)
+       }
+      }else{
+        showToast(string.errorString.eroor,data.VerifyDeliveryBoyOTP.message, Constants.toastTypes.DANGER);
+      }
+    },
+    
+    onError: (error) => {
+      setLoaderCount((prev) => prev - 1)
+      showToast(string.errorString.eroor, error.message, Constants.toastTypes.DANGER);
+    },
+    }
+  ) 
    
  return(
             <AuthScreenComponent
@@ -48,13 +106,19 @@ const VerifyOTP = ({navigation}) =>{
               screenName={ScreenNames.VerifyOTP}
             >
 
+               {loaderCount > 0? (
+                <APILoader
+                  visible = {loaderCount > 0 ? true : false}
+                />                     
+                ):null}
+
                <Text style={[GlobalStyles.txt_bold_primary_20,{textAlign:'center'}]}>Verify your account!</Text> 
 
                <Text style={[GlobalStyles.txt_bold_black_14,{
                 marginTop:dimensions.dp_10,
                 marginBottom:dimensions.dp_15,
                 textAlign:'center'
-               }]}>Enter the 6-digit OTP sent to your registered email address.</Text>
+               }]}>Enter the 6-digit OTP sent to {email}.</Text>
 
                <Text style={GlobalStyles.textinput_title}>{string.forgotpasswordString.otp}</Text> 
                
@@ -155,11 +219,35 @@ const VerifyOTP = ({navigation}) =>{
                     disabled={isButtonDisabled}
                     style={isButtonDisabled ? GlobalStyles.button_primary_disable : GlobalStyles.button_primary}
                     onPress={()=>{
+
                         const  completeOtp = otpOne + otpTwo + otpThree + otpFour + otpFive + otpSix;
-                        showToast("Success", "OTP Verified Successfully", Constants.toastTypes.SUCCESS);
-                        navigation.navigate(ScreenNames.ResetPassword)
+
+                        if(from == ScreenNames.ForgotPassword){
+                            navigation.navigate(ScreenNames.ResetPassword,{ email: email, otp: completeOtp})
+                        }else{
+                            setLoaderCount((prev) => prev + 1)
+                            verifyDeliveryBoyOTP({
+                              variables: {
+                                  usrEmail: email,
+                                  otp:completeOtp,
+                              },
+                              });
+                        }
                     }}>
                     <Text style={GlobalStyles.button_text_white}>{string.forgotpasswordString.verify}</Text>
+                </TouchableOpacity>
+
+                 <TouchableOpacity 
+                    style={{margin:dimensions.dp_20,alignSelf:'center'}}
+                    onPress={()=>{
+                        setLoaderCount((prev) => prev + 1)
+                        resendDeliveryBoyOTP({
+                          variables: {
+                              usrEmail: email,
+                          },
+                          });
+                    }}>
+                    <Text style={GlobalStyles.txt_bold_primary_16}>{string.forgotpasswordString.resendOtp}</Text>
                 </TouchableOpacity>
 
             </AuthScreenComponent>

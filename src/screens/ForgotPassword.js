@@ -8,7 +8,9 @@ import dimensions from "../res/dimenstion";
 import { ScreenNames } from "../utills/ScreenName";
 import { isValidEmail,showToast } from "../utills/GlobalFunctions";
 import AuthScreenComponent from "../components/AuthScreenComponant";  
-
+import { ForgotDeliveryBoyPassword } from "../api/graphQL/mutation/ForgotDeliveryBoyPassword";
+import APILoader from "../components/APILoader";
+import { useMutation } from "@apollo/client/react";
 
 const ForgotPassword = ({navigation}) =>{
 
@@ -24,15 +26,43 @@ useEffect(() => {
   }, [email]);
 
 const handleSendOtp = () => {
-    console.log('send otp with:', email);
-    showToast("Success", "OTP sent to " + email, Constants.toastTypes.SUCCESS);
+     forgotDeliveryBoyPassword({variables: {usrEmail: email}});
 };
+
+const [ forgotDeliveryBoyPassword , { loading: loadingResend, error: errorResend, data: dataResend  }] = 
+  useMutation ( ForgotDeliveryBoyPassword,
+
+  {
+    errorPolicy: "all",
+    onCompleted: (data) => {    
+       
+      console.log("jhfg...",data)  
+
+      if(data.ForgotDeliveryBoyPassword.success){
+            showToast(string.sucess,data.ForgotDeliveryBoyPassword.message, Constants.toastTypes.SUCCESS);  
+            navigation.navigate(ScreenNames.VerifyOTP,{from:ScreenNames.ForgotPassword,email:email})
+      }else{
+            showToast(string.errorString.eroor,data.ForgotDeliveryBoyPassword.message, Constants.toastTypes.DANGER);
+      }
+    },
+    
+    onError: (error) => {
+     showToast(string.errorString.eroor,error.message, Constants.toastTypes.DANGER);
+    },
+    }
+  )
    
  return(
         <AuthScreenComponent
             navigation={navigation}
             screenName={ScreenNames.ForgotPassword}
         >
+
+                {loadingResend ? (
+                <APILoader
+                  visible = {loadingResend}
+                />                     
+                ):null}
            
                <Text style={[GlobalStyles.txt_bold_primary_20,{textAlign:'center'}]}>Forgot your password?</Text> 
 
@@ -58,8 +88,6 @@ const handleSendOtp = () => {
                             return;
                         }else{
                             handleSendOtp();
-                            navigation.navigate(ScreenNames.VerifyOTP, 
-                                { email: email, fromScreen: ScreenNames.ForgotPassword });
                         }           
                     }}>
                     <Text style={GlobalStyles.button_text_white}>{string.loginString.sendOTP}</Text>

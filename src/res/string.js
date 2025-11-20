@@ -77,6 +77,7 @@ const string =
         verifyOtpTitle:"We've sent a 6-digit OTP to ",
         otpPlaceHolder:"0",
         verify:"Verify",
+        resendOtp:"Resend Otp",
         otp:"OTP",
         resetPasswordDescription:"Reset your password and login with new password.",
         resetPassword:"Reset password",

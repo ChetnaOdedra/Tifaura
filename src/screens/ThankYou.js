@@ -13,15 +13,18 @@ import RenderHTML from 'react-native-render-html';
 const ThankYou = ({navigation}) =>{
 
  const thankYou = `
- <p>Thank you for trusting us and being a part of the <b>TIFAURA Team.</b> Our admin team will review and approve your profile shortly. Once approved, you’ll be able to start working with us.</p>
+ <p>Welcome to the <b>TIFAURA</b> family!
+We appreciate your trust. Our team is reviewing your profile and will approve it soon.
+You’ll be able to begin using the platform once the process is complete.</p>
  `;   
    
  return(
         <SafeAreaView style={GlobalStyles.mainScreenContainerAuth}>
-            <Image
-             source={Constants.imagePath.transparent_logo}
-             style={GlobalStyles.logoImageStyle}
-            />
+          
+             <Image
+                    source={Constants.imagePath.new_logo}
+                    style={GlobalStyles.logoImageStyle}
+                    />
 
             <View style={GlobalStyles.dataContainerAuth}>
 

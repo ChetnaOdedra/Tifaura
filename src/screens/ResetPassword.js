@@ -9,12 +9,18 @@ import string from "../res/string";
 import dimensions from "../res/dimenstion";
 import { ScreenNames } from "../utills/ScreenName";
 import { clearScreenNavigation, showToast,getPasswordError,validatePassword} from "../utills/GlobalFunctions";
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import AuthScreenComponent from "../components/AuthScreenComponant";  
+import { ResetDeliveryBoyPassword } from "../api/graphQL/mutation/ResetDeliveryBoyPassword";
+import APILoader from "../components/APILoader";
+import { useRoute } from "@react-navigation/native";
+import { useMutation } from "@apollo/client/react";
 
 
 const ResetPassword = ({navigation}) =>{
 
+const route = useRoute();
+const { email , otp } = route.params || {};
+console.log("params...",route.params)
 
 const [password, setPassword] = useState("");
 const [consirmPsw, setConfirmPsw] = useState("");
@@ -27,6 +33,29 @@ useEffect(() => {
       setIsButtonDisabled(true);
     }
   }, [password, consirmPsw]);
+
+
+const [ resetDeliveryBoyPassword , {  loading, error, data  }] = 
+   useMutation ( ResetDeliveryBoyPassword,
+
+  {
+    errorPolicy: "all",
+    onCompleted: (data) => {    
+      if(data.ResetDeliveryBoyPassword.success){
+        showToast(string.sucess,data.ResetDeliveryBoyPassword.message, Constants.toastTypes.SUCCESS);
+        clearScreenNavigation(navigation,ScreenNames.LOGIN)
+      }else{
+        showToast(
+            string.errorString.eroor,
+            data.ResetDeliveryBoyPassword.message, 
+            Constants.toastTypes.DANGER);
+      }
+    },
+    onError: (error) => {
+        showToast(string.errorString.eroor, error.message, Constants.toastTypes.DANGER);
+    },
+    }
+  )  
 
 const verifyInputData = (password,consirmPsw) => {
 
@@ -46,16 +75,28 @@ const verifyInputData = (password,consirmPsw) => {
         return;
     }
 
-    showToast(string.successString.success, string.successString.passwordResetSuccess, Constants.toastTypes.SUCCESS);
-    clearScreenNavigation(navigation, ScreenNames.LOGIN);
-
+    handleResetPsw()
 }
+
+const handleResetPsw = () => {
+
+        resetDeliveryBoyPassword({
+        variables: {
+            usrEmail: email,
+            otp: otp,
+            newPassword:password
+        },
+        });
+};
 
  return(
             <AuthScreenComponent
                 navigation={navigation}
                 screenName={ScreenNames.ResetPassword}
             >
+                {loading ?
+                    <APILoader visible={loading}/> :null
+                }
            
                <Text style={[GlobalStyles.txt_bold_primary_20,{textAlign:'center'}]}>Reset password!</Text> 
 

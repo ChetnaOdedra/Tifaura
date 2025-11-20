@@ -55,7 +55,8 @@ const [registerDeliveryBoy, { loading, errorRegistration, dataRegistration }] = 
       if(dataRegister.success){
 
        showToast(string.sucess,dataRegister.message, Constants.toastTypes.SUCCESS);
-       navigation.navigate(ScreenNames.VerifyEmail,{
+
+       navigation.navigate(ScreenNames.VerifyOTP,{
         from:ScreenNames.Registration,email:email,phone:phone,password:password})
 
       }else{
@@ -196,17 +197,18 @@ const handleRegister = () => {
                         value={phone}
                         keyboardType="numeric"
                         onChangeText={setPhone}
+                        maxLength={10}
                         />
                      </View>
 
-                    <AddressSearch
+                    {/* <AddressSearch
                     onSelect={(details) => {
                         console.log("on address select..",details)
                         setAddressLine1(details.address_components[0].long_name); // example
                         setTown(details.address_components.find(c => c.types.includes('locality'))?.long_name || '');
                         setPostCode(details.address_components.find(c => c.types.includes('postal_code'))?.long_name || '');
                     }}
-                    />
+                    /> */}
 
                     </View>                    
 
