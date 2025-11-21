@@ -38,16 +38,15 @@ const Login = ({ navigation }) => {
     errorPolicy: "all",
     onCompleted: (response) => {
       const loginData = response.LoginDeliveryBoy;
-      console.log("login repo....",response)
       if (loginData.success == true) {
 
         const userData = loginData.data;
         showToast(string.sucess, loginData.message, Constants.toastTypes.SUCCESS);
 
-        if (userData?.usr_is_verified) {
+        if (userData?.usr_is_verified && userData?.exists == true) {
           saveUserData(userData, userData.token);
         }else{
-          if (!loginData.data?.usr_is_verified) {
+          if (!loginData.data?.usr_is_verified && userData?.exists == true) {
           navigation.navigate(ScreenNames.VerifyOTP, { from: ScreenNames.LOGIN, email, password });
         }
         }

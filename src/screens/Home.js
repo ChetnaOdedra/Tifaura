@@ -8,11 +8,25 @@ import string from "../res/string";
 import Geolocation from "react-native-geolocation-service";
 import { request, PERMISSIONS, RESULTS } from "react-native-permissions";
 import dimensions from "../res/dimenstion";
+import PreferenceManager from "../utills/PreferenceManager";
 
 
 const Home = ({navigation}) =>{
 
-    const mapRef = useRef(null);
+  const mapRef = useRef(null);
+  const [loginUser,setLoginUser] = useState(null)
+  useEffect(() => {
+    
+     const getUserData = async () => {
+        try {
+          const user = await PreferenceManager.getItem(PreferenceManager.KEYS.USER);
+          setLoginUser(user);
+        } catch (e) {
+          console.log("error getUserData..",e)
+        }
+      };
+      getUserData();
+    }, []);
 
 
 //  const [location, setLocation] = useState(null);
@@ -105,13 +119,11 @@ const Home = ({navigation}) =>{
 
     return(
 
-  
-
           <DrawerScreenWrapper
-          navigation={navigation}
-          headerTitle={string.screenNames.Home}
-          index={Constants.drawerIndex.HOME}
-        >
+            navigation={navigation}
+            headerTitle={string.screenNames.Home}
+            index={Constants.drawerIndex.HOME}
+          >
           <View style={styles.container}>
 
             <MapView

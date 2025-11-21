@@ -7,17 +7,17 @@ import { ScreenNames } from "../../utills/ScreenName";
 import dimensions from "../../res/dimenstion";
 import colors from "../../res/color";
 import string from "../../res/string";
+import PreferenceManager from "../../utills/PreferenceManager";
 
 const Settings = ({navigation}) =>{
 
     const [notifications, setNotifications] = useState(true);
 
     const settingsOptions = [
-        { id: "1", title: "Partner Registration", screen: ScreenNames.DriverOnBoardProcess },
-        { id: "2", title: "Notifications setting", type: "toggle" },
-        { id: "3", title: "Change Password", screen: ScreenNames.ChangePassword},
         { id: "4", title: "Vehicle Info", screen: "VehicleInfo" },
         { id: "5", title: "Bank Account Info", screen: "BankInfo" },
+        { id: "2", title: "Notifications setting", type: "toggle" },
+        { id: "3", title: "Change Password", screen: ScreenNames.ChangePassword},
         { id: "6", title: "Terms & Conditions", screen: ScreenNames.TermsCondition },
         { id: "7", title: "Privacy Policy", screen: ScreenNames.PrivacyPolicy },
         { id: "8", title: "Share App", screen: ScreenNames.ShareApp },

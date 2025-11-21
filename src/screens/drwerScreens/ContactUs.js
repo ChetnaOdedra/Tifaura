@@ -28,20 +28,20 @@ const ContactUs = ({navigation}) =>{
                             marginTop:dimensions.dp_3
                             }}>
 
-    
-
-                                <View style={GlobalStyles.cardShare}>
-
-                                    <Image
+                               <Image
                                         source={Constants.imagePath.transparent_logo}
                                         style={GlobalStyles.logoShare}
                                     />
+
+                                <View style={GlobalStyles.dataContainerAuth}>
+
 
                                     <View style={{
                                         backgroundColor:colors.cardPrimary,
                                         padding:dimensions.dp_15,
                                         borderRadius:dimensions.dp_10,
                                         alignSelf:'center',
+                                        marginTop:dimensions.dp_20
                                         }}>
 
                                         <Text style={[GlobalStyles.txt_bold_black_16,{textAlign:'center'}]}>
@@ -50,34 +50,17 @@ const ContactUs = ({navigation}) =>{
                                     </View>
 
                                         <TouchableOpacity
-                                            style={[GlobalStyles.button_primary,{
+                                            style={[GlobalStyles.button_white,{
                                                 flexDirection:'row',alignItems:'center',
                                                 justifyContent:'center'}]}
                                         >
                                             <Image
-                                                source={Constants.imagePath.mail}
-                                                style={{marginEnd:dimensions.dp_10,width:dimensions.dp_15,height:dimensions.dp_15,resizeMode:'contain'}}
-                                            />
-
-                                            <Text style={GlobalStyles.txt_bold_white_14}>Tifaura@gmail.com</Text>
-                                        </TouchableOpacity>
-
-                                    <TouchableOpacity
-                                        style={[GlobalStyles.button_white,
-                                            {
-                                                marginBottom:dimensions.dp_20,
-                                                marginTop:dimensions.dp_15,
-                                                flexDirection:'row',
-                                                justifyContent:'center'
-                                            }
-                                        ]}
-                                    >
-                                         <Image
                                                 source={Constants.imagePath.phone}
                                                 style={{marginEnd:dimensions.dp_10,width:dimensions.dp_15,height:dimensions.dp_15,resizeMode:'contain'}}
                                             />
-                                        <Text style={GlobalStyles.txt_bold_black_14}>+44123456789</Text>
-                                    </TouchableOpacity>
+
+                                            <Text style={GlobalStyles.txt_bold_black_14}>Tifaura@gmail.com</Text>
+                                        </TouchableOpacity>
 
                                 </View>
 

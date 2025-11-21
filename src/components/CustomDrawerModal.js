@@ -32,6 +32,7 @@ export default function  CustomDrawerModal ({
   visible,
   onClose,
   navigation,
+  loginUser,
   width = Math.min(dimensions.dp_250, SCREEN_WIDTH * 0.85),
   animationDuration = 250,
   swipeThreshold = 0.25, // fraction of drawer width to trigger close
@@ -42,11 +43,11 @@ export default function  CustomDrawerModal ({
   
 
   const menuItems = [
-    { id: Constants.drawerIndex.HOME, title: string.screenNames.Home , icon : Constants.imagePath.home},
-    { id: Constants.drawerIndex.MY_ACCOUNT, title: string.screenNames.PartnerReg,icon : Constants.imagePath.profile },
-    { id: Constants.drawerIndex.EARNING, title: string.screenNames.Earnings,icon : Constants.imagePath.earning },
-    { id: Constants.drawerIndex.SETTINGS, title: string.screenNames.Settings,icon : Constants.imagePath.setting},
-    { id: Constants.drawerIndex.CONTACT_US, title: string.screenNames.ContactUs,icon : Constants.imagePath.contact_us },
+    { id: Constants.drawerIndex.HOME, title: string.screenNames.Home , icon : Constants.imagePath.home,enable:true},
+    { id: Constants.drawerIndex.MY_ACCOUNT, title: string.screenNames.PartnerReg,icon : Constants.imagePath.profile,enable:true},
+    { id: Constants.drawerIndex.EARNING, title: string.screenNames.Earnings,icon : Constants.imagePath.earning,enable:loginUser?.is_verified },
+    { id: Constants.drawerIndex.SETTINGS, title: string.screenNames.Settings,icon : Constants.imagePath.setting,enable:true},
+    { id: Constants.drawerIndex.CONTACT_US, title: string.screenNames.ContactUs,icon : Constants.imagePath.contact_us,enable:true },
    // { id: Constants.drawerIndex.PRIVACY_POLICY, title: "Privacy Policy",icon : Constants.imagePath.privacy },
    // { id: Constants.drawerIndex.TERMS_CONDITION, title: "Terms & Conditions",icon : Constants.imagePath.terms },
    // { id: Constants.drawerIndex.SHARE_APP, title: "Share App",icon : Constants.imagePath.share },
@@ -57,12 +58,14 @@ export default function  CustomDrawerModal ({
       title: "Logout",
       isLogout: true,
       icon: Constants.imagePath.logout,
+      enable:true
     },
 
     { 
       id: Constants.drawerIndex.DELETE_ACCOUNT, 
       title: "Delete Account",
-      icon : Constants.imagePath.delete_account  
+      icon : Constants.imagePath.delete_account  ,
+      enable:true
     },
 
   ];
@@ -244,13 +247,12 @@ export default function  CustomDrawerModal ({
             <View style={styles.handle} />
           </View>
 
-          {/* <View style={styles.content}>{children}</View> */}
 
-             <ScrollView
-                                showsVerticalScrollIndicator={false} 
-                                contentContainerStyle={GlobalStyles.scrollViewContainer}
-                                keyboardShouldPersistTaps="handled"
-                              >
+                  <ScrollView
+                        showsVerticalScrollIndicator={false} 
+                        contentContainerStyle={GlobalStyles.scrollViewContainer}
+                        keyboardShouldPersistTaps="handled"
+                  >
 
                   <View style={{
                       backgroundColor:colors.primary,
@@ -273,23 +275,25 @@ export default function  CustomDrawerModal ({
                           alignSelf:'center'
                         }}>
 
-                         <Text style={[GlobalStyles.txt_bold_primary_16]}>{getInitials("Chetna Odedra")}</Text>
+                         <Text style={[GlobalStyles.txt_bold_primary_16]}>{getInitials(loginUser.usr_name)}</Text>
 
                       </View>
 
                       <View>
 
-                        <Text style={[GlobalStyles.txt_regular_white_16,{textAlign:'center',marginTop:dimensions.dp_10}]}>Chetana</Text>
+                        <Text style={[GlobalStyles.txt_regular_white_16,{textAlign:'center',marginTop:dimensions.dp_10}]}>{loginUser.usr_full_name}</Text>
 
-                        <Text style={[GlobalStyles.txt_regular_white_14,{textAlign:'center',marginTop:dimensions.dp_5}]}>chents@mailinator.com</Text>
+                        <Text style={[GlobalStyles.txt_regular_white_14,{textAlign:'center',marginTop:dimensions.dp_5}]}>{loginUser.usr_email}</Text>
 
                       </View>
                      
                   </View>
 
                    <View style={{ marginVertical: dimensions.dp_10 }}>
+
                         {menuItems.map((item) => (
                           <TouchableOpacity
+                            disabled={!item.enable}
                             key={item.id}
                             onPress={() => {
                               setSelectedIndex(item.id);
@@ -300,7 +304,10 @@ export default function  CustomDrawerModal ({
                                 close(item.id);
                               }
                             }}
-                            style={[selectedIndex === item.id? styles.selectedItemViewStyle: styles.itemViewStyle,{marginTop:item.isLogout? 20:0}]}
+                            style={[selectedIndex === item.id? styles.selectedItemViewStyle: 
+                              styles.itemViewStyle,{
+                                opacity:item.enable?1:0.5,
+                                marginTop:item.isLogout? 20:0}]}
                           >
                             <View style={{ 
                               flexDirection: "row",
@@ -338,7 +345,7 @@ export default function  CustomDrawerModal ({
 
              <Text
                 style={[GlobalStyles.txt_bold_primary_14,{
-                  marginBottom:dimensions.dp_30,alignSelf:'center'}]}
+                  marginBottom:dimensions.dp_60,alignSelf:'center'}]}
                         >App Version 1.00</Text>
         </Animated.View>
 

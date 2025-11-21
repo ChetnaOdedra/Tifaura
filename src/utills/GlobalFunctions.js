@@ -6,6 +6,7 @@ import dimensions from '../res/dimenstion';
 import colors from '../res/color';
 import Constants from './Constants';
 import {ScreenNames} from  '../utills/ScreenName';
+import PreferenceManager from './PreferenceManager';
 
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -65,8 +66,15 @@ export const showToast = (message,description,type
       },
     });
 };
-
-
+export const loadLoggedInUser = async () => {
+  try {
+    const user = await PreferenceManager.getItem(PreferenceManager.KEYS.USER);
+    return user ? user : null;
+  } catch (error) {
+    console.log("Error loading user:", error);
+    return null;
+  }
+};
 export const dp = (px) => {
   return normalize(px)
 };
@@ -148,7 +156,7 @@ export const changeUi = (index,navigation) =>{
               navigation.navigate(ScreenNames.Home)
             }
             else if(index == Constants.drawerIndex.MY_ACCOUNT){
-              navigation.navigate(ScreenNames.MyAccount)
+              navigation.navigate(ScreenNames.DriverOnBoardProcess)
             }
             else if(index == Constants.drawerIndex.EARNING){
               navigation.navigate(ScreenNames.Earnings)
