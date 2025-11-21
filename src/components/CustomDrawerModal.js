@@ -346,7 +346,7 @@ export default function  CustomDrawerModal ({
              <Text
                 style={[GlobalStyles.txt_bold_primary_14,{
                   marginBottom:dimensions.dp_60,alignSelf:'center'}]}
-                        >App Version 1.00</Text>
+                        >App Version 1.0.0</Text>
         </Animated.View>
 
         {/* Click-catcher on the rest of the screen to close when tapped (optional) */}
