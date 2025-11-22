@@ -173,9 +173,12 @@ const destination = { latitude:21.642843, longitude: 69.5884066 };
     init();
   }, []);
 
-  if (!location) return null;
 
   const zoomToMarker = (zoomTo) => {
+    if (!mapRef.current) {
+    console.log("Map not ready yet");
+    return;
+  }
     mapRef.current.animateToRegion(
       {
         ...zoomTo,
