@@ -22,8 +22,37 @@ const [loginUser, setLoginUser] = useState(null);
 const origin = { latitude: 21.6566296, longitude: 69.6070868 };     
 const destination = { latitude:21.642843, longitude: 69.5884066 }; 
 
-  const [location, setLocation] = useState(null);
-  const [routeCoords, setRouteCoords] = useState([]);
+const [location, setLocation] = useState(null);
+const [routeCoords, setRouteCoords] = useState([]);
+
+
+const [showDeliveryDialog, setShowDeliveryDialog] = useState(false);
+const [showFullDetailDialog, setShowFullDetailDialog] = useState(false);
+const [selectedOrder, setSelectedOrder] = useState(null);
+
+const deliveries = [
+    {
+      id: "1",
+      address: "Galaxy Plaza, Street 5",
+      km: "1.2 km",
+      count: 2,
+      details: "Order 1 full details goes here..."
+    },
+    {
+      id: "2",
+      address: "Madhav Park, Block - C",
+      km: "2.5 km",
+      count: 1,
+      details: "Order 2 full details goes here..."
+    },
+    {
+      id: "3",
+      address: "Rajkot City Center",
+      km: "4.8 km",
+      count: 3,
+      details: "Order 3 full details goes here..."
+    }
+  ];
 
   const enableDeviceLocation = async () => {
     try {
@@ -237,9 +266,16 @@ const destination = { latitude:21.642843, longitude: 69.5884066 };
               coordinates={routeCoords}
               strokeWidth={4}
               strokeColor="blue"
-            />
+            />  
           )}
         </MapView>
+
+        <TouchableOpacity
+         style={[GlobalStyles.button_primary,{marginHorizontal:dimensions.dp_20,marginBottom:dimensions.dp_20}]}
+
+        >
+          <Text style={GlobalStyles.txt_bold_white_14}>Start delivery</Text>
+        </TouchableOpacity>
 
       </View>
     </DrawerScreenWrapper>

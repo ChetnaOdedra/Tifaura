@@ -40,7 +40,7 @@ const AppHeader = ({ onMenuPress,header,index,isOnlineProvider}) => {
               
                 </View>
 
-               {index === Constants.drawerIndex.HOME ?
+               {/* {index === Constants.drawerIndex.HOME ?
                
                 <TouchableOpacity
                   style={[isOnline?GlobalStyles.button_online_green:GlobalStyles.button_online_primary,{
@@ -48,10 +48,10 @@ const AppHeader = ({ onMenuPress,header,index,isOnlineProvider}) => {
                   }]}
                   >
                     <Text style={GlobalStyles.txt_bold_white_12}>
-                      {isOnline?'Go Offline':'Go Online'}
+                      {isOnline?'Complete delivery':'Start your delivery'}
                     </Text>
               </TouchableOpacity>:null
-               }     
+               }      */}
              
 
 
